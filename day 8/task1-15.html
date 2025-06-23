@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HTML Tables - Complete Example</title>
+</head>
+<body>
+
+  <!-- 🔹Task 1 Basic 3x3 Table -->
+  <h2>3x3 Table with Headings</h2>
+  <table border="1" style="text-align:center; padding:10px;">
+    <tr>
+        <!--Task 2-->
+      <th>Name</th>
+      <th>Age</th>
+      <th>City</th>
+    </tr>
+    <tr>
+      <td>John</td>
+      <td>22</td>
+      <td>Hyderabad</td>
+    </tr>
+    <tr>
+      <td>Mary</td>
+      <td>21</td>
+      <td>Vizag</td>
+    </tr>
+  </table>
+
+  <!-- 🔹 Student Table -->
+  <h2>5 Students Table</h2><!--task 4 border=1-->
+  <table border="1" style="text-align:center; padding:10px;">
+    <tr> <!--Task 3-->
+      <th>Name</th>
+      <th>Roll No</th>
+      <th>Class</th>
+      <th>Marks</th>
+    </tr>
+    <tr><td>Ravi</td><td>101</td><td>10A</td><td>88</td></tr>
+    <tr><td>Priya</td><td>102</td><td>10B</td><td>93</td></tr>
+    <tr><td>Kiran</td><td>103</td><td>10C</td><td>77</td></tr>
+    <tr><td>Sita</td><td>104</td><td>10A</td><td>84</td></tr>
+    <tr><td>Manoj</td><td>105</td><td>10B</td><td>91</td></tr>
+  </table>
+
+  <!-- task 5 Colspan -->
+  <h2>Colspan Example</h2>
+  <table border="1" style="text-align:center;">
+    <tr>
+      <td colspan="2">Merged Horizontally</td>
+      <td>Normal Cell</td>
+    </tr>
+    <tr>
+      <td>One</td><td>Two</td><td>Three</td>
+    </tr>
+  </table>
+
+  <!-- task 6 Rowspan -->
+  <h2>Rowspan Example</h2>
+  <table border="1" style="text-align:center;">
+    <tr>
+      <td rowspan="2">Merged Vertically</td>
+      <td>Row 1</td>
+    </tr>
+    <tr>
+      <td>Row 2</td>
+    </tr>
+  </table>
+
+  <!-- task7 id Weekly Timetable with Alternate Colors -->
+  <h2>Weekly Timetable</h2>
+  <table border="1" style="text-align:center;">
+    <tr>
+      <th>Day</th><th>Subject 1</th><th>Subject 2</th>
+    </tr><!--task 8-->
+    <tr style="background-color:#f2f2f2"><td>Monday</td><td>Math</td><td>English</td></tr>
+    <tr><td>Tuesday</td><td>Science</td><td>History</td></tr>
+    <tr style="background-color:#f2f2f2"><td>Wednesday</td><td>Physics</td><td>Biology</td></tr>
+    <tr><td>Thursday</td><td>Chemistry</td><td>Geography</td></tr>
+    <tr style="background-color:#f2f2f2"><td>Friday</td><td>Computer</td><td>Art</td></tr>
+    <tr><td>Saturday</td><td>Games</td><td>Library</td></tr>
+  </table>
+
+  <!-- task 9 Favorite Movies -->
+  <h2>Favorite Movies</h2>
+  <table border="1" style="text-align:center;">
+    <tr>
+      <th>Title</th><th>Genre</th><th>Year</th><th>IMDB Rating</th>
+    </tr>
+    <tr><td>Jersey</td><td>Drama</td><td>2019</td><td>8.5</td></tr>
+    <tr><td>Ninnu Kori</td><td>Feel Good</td><td>2017</td><td>7.6</td></tr>
+    <tr><td>Khaleja</td><td>Action</td><td>2010</td><td>8.0</td></tr>
+    <tr><td>Eega</td><td>Fantasy</td><td>2012</td><td>7.7</td></tr>
+    <tr><td>Vedam</td><td>Anthology</td><td>2010</td><td>8.3</td></tr>
+  </table>
+
+  <!-- task 10 thead, tbody, tfoot -->
+  <h2>Table with thead, tbody, tfoot</h2>
+  <table border="1" style="text-align:center;">
+    <thead>
+      <tr>
+        <th>Item</th>
+        <th>Quantity</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Pen</td><td>10</td></tr>
+      <tr><td>Notebook</td><td>5</td></tr>
+    </tbody>
+    <tfoot>
+      <tr><td>Total</td><td>15</td></tr>
+    </tfoot>
+  </table>
+
+  <!-- task 12 Image inside a cell -->
+  <h2>Image in Table Cell</h2><!--task 11-->
+  <table border="1" style="text-align:center;">
+    <tr>
+      <th>Product</th>
+      <th>Image</th>
+    </tr>
+    <tr>
+      <td>Laptop</td>
+      <td><img src="laptop.jpg" alt="Laptop" width="150" height="150"></td>
+    </tr>
+  </table>
+
+  <!-- task 13 Product Pricing Table -->
+  <h2>Product Pricing Table</h2>
+  <table border="1" style="text-align:center;">
+    <tr><!--task 14-->
+      <th title="Name of the product">Product Name</th>
+      <th title="Product Price">Price</th>
+      <th title="Click to buy">Buy</th>
+    </tr>
+    <tr>
+      <td>Phone</td><td>₹15,000</td><td><a href="#">Buy Now</a></td>
+    </tr>
+    <tr>
+      <td>Laptop</td><td>₹50,000</td><td><a href="#">Buy Now</a></td>
+    </tr>
+  </table>
+
+  <!-- task 15 Smartphone Comparison -->
+  <h2>Smartphone Comparison</h2>
+  <table border="1" style="text-align:center;">
+    <tr>
+      <th>Feature</th>
+      <th>Phone A</th>
+      <th>Phone B</th>
+    </tr>
+    <tr><td>Display</td><td>6.1" AMOLED</td><td>6.5" LCD</td></tr>
+    <tr><td>Camera</td><td>50 MP</td><td>64 MP</td></tr>
+    <tr><td>Battery</td><td>4500 mAh</td><td>5000 mAh</td></tr>
+    <tr><td>Processor</td><td>Snapdragon 778G</td><td>MediaTek 920</td></tr>
+    <tr><td>Price</td><td>₹25,000</td><td>₹23,000</td></tr>
+  </table>
+
+</body>
+</html>

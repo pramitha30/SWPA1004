@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HTML Form Example</title>
+</head>
+<body>
+
+  <h2>User Registration Form</h2>
+
+  <form action="#" method="post"><!--task 30-->
+    <fieldset><!--task 16-->
+      <legend>Basic Information</legend><!--task 19-->
+
+      <!-- Name Field -->
+      <label for="name">Name:</label><!--task 20-->
+      <input type="text" id="name" placeholder="Enter your name" required><br><br><!--task 17-->
+
+      <!-- Email Field -->
+      <label for="email">Email:</label>
+      <input type="email" id="email" placeholder="Enter your email" required><br><br>
+
+      <!-- task 25 Message Field -->
+      <label for="message">Message:</label><br>
+      <textarea id="message" rows="4" cols="40" placeholder="Your message here..."></textarea><br><br>
+
+      <!-- task 21 Password -->
+      <label for="password">Password:</label>
+      <input type="password" id="password" placeholder="Enter password" required><br><br>
+
+      <!--task 22 Gender Radio -->
+      <label>Gender:</label><br>
+      <input type="radio" id="male" name="gender" value="Male">
+      <label for="male">Male</label>
+      <input type="radio" id="female" name="gender" value="Female">
+      <label for="female">Female</label>
+      <input type="radio" id="other" name="gender" value="Other">
+      <label for="other">Other</label><br><br>
+
+      <!-- task 23 Checkboxes -->
+      <label>Languages Known:</label><br>
+      <input type="checkbox" id="html" name="languages" value="HTML">
+      <label for="html">HTML</label>
+      <input type="checkbox" id="css" name="languages" value="CSS">
+      <label for="css">CSS</label>
+      <input type="checkbox" id="js" name="languages" value="JS">
+      <label for="js">JavaScript</label><br><br>
+
+      <!--task 24 Country Dropdown -->
+      <label for="country">Country:</label>
+      <select id="country" required>
+        <option value="">--Select--</option>
+        <option value="India">India</option>
+        <option value="Japan">Japan</option>
+        <option value="USA">USA</option>
+        <option value="UK">UK</option>
+      </select><br><br>
+    </fieldset>
+
+    <fieldset>
+      <legend>Advanced Details</legend>
+
+      <!-- task 26 Date of Birth -->
+      <label for="dob">Date of Birth:</label>
+      <input type="date" id="dob" required><br><br>
+
+      <!-- task 27 Number Input -->
+      <label for="experience">Years of Experience:</label>
+      <input type="number" id="experience" min="0" max="50" placeholder="0 - 50"><br><br>
+
+      <!--task 28 File Upload -->
+      <label for="resume">Upload Resume:</label>
+      <input type="file" id="resume"><br><br>
+
+      <!-- task 29 Validated Input -->
+      <label for="userid">User ID:</label>
+      <input type="text" id="userid" placeholder="5-10 characters" required maxlength="10" pattern="[A-Za-z0-9]{5,10}"><br><br>
+    </fieldset>
+
+    <!-- task 18 Submit and Reset Buttons -->
+    <input type="submit" value="Submit">
+    <input type="reset" value="Reset">
+
+  </form>
+
+</body>
+</html>
