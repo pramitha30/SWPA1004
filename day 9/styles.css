@@ -1,0 +1,50 @@
+#banner {
+  font-size: 2.5em;
+  background-color: greenyellow;
+  color: white;
+  width: 100%;
+  padding: 30px;
+  text-align: center;
+}
+
+#intro {
+  font-style: italic;
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+#box1 {
+  width: 250px;
+  height: 120px;
+  background-color: #FFDEAD;
+  margin: 20px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  border: 2px dashed #333;
+}
+
+#submitBtn {
+  background-color: #222;
+  color: #fff;
+  border: 2px solid #222;
+  padding: 12px 24px;
+  display: block;
+  margin: 20px auto;
+}
+/**/
+h1, h2, h3 {
+  font-family: 'Segoe UI', sans-serif;
+  color: #333;
+}
+
+p, li, a {
+  line-height: 1.6;
+}
+
+.btn.primary,
+.btn.secondary {
+  padding: 12px 20px;
+  border-radius: 6px;
+}

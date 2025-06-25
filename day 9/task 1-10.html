@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Linking Examples</title>
+
+    <!-- Internal CSS (Task 3, 4, 5, 8) -->
+    <style>
+        h1 {
+            color: blue; /* Task 3.1 */
+        }
+
+        p {
+            font-size: 18px; /* Task 3.2 */
+        }
+
+        form input {
+            border: 1px solid #000; /* Task 8.1 */
+        }
+
+        form button {
+            background-color: #4CAF50;
+            padding: 10px 20px; /* Task 8.2 */
+            color: white;
+            border: none;
+        }
+    </style>
+
+    <!-- External CSS Link (Task 6) -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Inline style for <p> (Task 1) -->
+    <p style="color: red;">This paragraph uses inline CSS for red text.</p>
+
+    <!-- Inline styled <div> (Task 2) -->
+    <div style="background-color: yellow;">
+        This div uses inline CSS to set background to yellow.
+    </div>
+
+    <!-- h1 styled with internal CSS (Task 3.1) -->
+    <h1>This is a heading styled with internal CSS</h1>
+
+    <!-- p styled with internal CSS font size (Task 3.2) -->
+    <p>This paragraph uses internal CSS for font size.</p>
+
+    <!-- h2 styled via external CSS (Task 7) -->
+    <h2>This is an h2 styled via external CSS</h2>
+
+    <!-- Task 6: body styled in external CSS -->
+
+    <!-- CSS Priority Example (Task 7) -->
+    <p style="color: orange;" class="priority-test">This p has inline, internal, and external styles.</p>
+
+    <!-- Form styled with internal CSS (Task 8) -->
+    <form>
+        <input type="text" placeholder="Your Name"><br><br>
+        <input type="email" placeholder="Your Email"><br><br>
+        <button type="submit">Submit</button>
+    </form><br>
+
+    <!-- Table styled with external CSS (Task 9) -->
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+        </tr>
+        <tr>
+            <td>Alice</td>
+            <td>alice@example.com</td>
+        </tr>
+        <tr>
+            <td>Bob</td>
+            <td>bob@example.com</td>
+        </tr>
+    </table><br>
+
+    <!-- Link hover effect (Task 10) -->
+    <a href="#">Hover over this link</a>
+
+    <!-- Inline CSS warning box (Task 11) -->
+    <div style="background-color: red; color: white; padding: 10px; margin-top: 20px;">
+        ⚠️ This is a warning box styled using inline CSS.
+    </div>
+
+
+</body>
+</html>

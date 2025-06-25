@@ -1,0 +1,38 @@
+/* Task 6: Body background */
+body {
+    background-color: lightgray;
+}
+
+/* Task 7: h2 styling */
+h2 {
+    color: green;
+    padding: 10px;
+}
+
+/* Task 7: External CSS for .priority-test */
+.priority-test {
+    color: purple; /* Will be overridden by inline orange */
+    font-size: 20px;
+}
+
+/* Task 9: Table styling */
+table {
+    border-collapse: collapse;
+    width: 50%;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+/* Task 10: Hover effect on links */
+a:hover {
+    color: red;
+    text-decoration: underline;
+}
