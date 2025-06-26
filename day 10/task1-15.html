@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Color Styles Showcase</title>
+  <style>
+    /* Named Colors */
+    .named-color-text {
+      color: blue;
+    }
+    .lightgreen-box {
+      background-color: lightgreen;
+      color: white;
+      padding: 10px;
+    }
+    .legend span {
+      padding: 4px 8px;
+      margin-right: 5px;
+      border-radius: 4px;
+      color: white;
+    }
+    .success { background-color: green; }
+    .danger { background-color: red; }
+    .warning { background-color: orange; }
+
+    /* Hex Colors */
+    .hex-heading {
+      color: #3498db;
+    }
+    .hex-box {
+      background-color: #ff5733;
+      color: white;
+      padding: 10px;
+    }
+    .hex-boxes div {
+      color: white;
+      padding: 10px;
+      margin: 5px 0;
+    }
+    .hex-red { background-color: #e74c3c; }
+    .hex-blue { background-color: #2980b9; }
+    .hex-green { background-color: #27ae60; }
+
+    /* RGB Colors */
+    .rgb-heading {
+      color: rgb(255, 99, 71);
+    }
+    .rgb-section {
+      background-color: rgb(240, 240, 240);
+      padding: 10px;
+    }
+    .rgb-paragraphs p:nth-child(1) {
+      color: rgb(100, 149, 237);
+    }
+    .rgb-paragraphs p:nth-child(2) {
+      color: rgb(70, 130, 180);
+    }
+    .rgb-paragraphs p:nth-child(3) {
+      color: rgb(30, 144, 255);
+    }
+
+    /* RGBA Colors */
+    .rgba-overlay {
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      padding: 20px;
+    }
+    .rgba-button {
+      background-color: rgba(255, 0, 0, 0.7);
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+    .rgba-text {
+      background-color: rgba(0, 128, 0, 0.3);
+      padding: 10px;
+    }
+
+    /* HSL/HSLA */
+    .hsl-text {
+      color: hsl(200, 100%, 50%);
+    }
+    .hsl-box {
+      background-color: hsl(120, 60%, 70%);
+      color: hsl(0, 0%, 20%);
+      padding: 10px;
+    }
+    .hsla-overlay {
+      background-color: hsla(180, 100%, 50%, 0.2);
+      padding: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2 class="named-color-text">Welcome to Our Website!</h2>
+
+  <div class="lightgreen-box">Get 20% off on your first purchase. Limited time offer!</div>
+
+  <div class="legend" style="margin-top: 10px;">
+    Status:
+    <span class="success">Completed</span>
+    <span class="danger">Failed</span>
+    <span class="warning">Pending</span>
+  </div>
+
+  <h2 class="hex-heading">Explore the Latest Summer Collection</h2>
+
+  <div class="hex-box">Hot deals are here! Shop your favorite styles now.</div>
+
+  <div class="hex-boxes">
+    <div class="hex-red">New Arrivals</div>
+    <div class="hex-blue">Editor's Picks</div>
+    <div class="hex-green">Top Rated</div>
+  </div>
+
+  <h2 class="rgb-heading">Limited Time Offer: Buy 1 Get 1 Free</h2>
+
+  <section class="rgb-section">Our new arrivals are now available in all stores nationwide.</section>
+
+  <div class="rgb-paragraphs">
+    <p>Enjoy smooth shopping experience on desktop and mobile.</p>
+    <p>Track your orders easily from your profile dashboard.</p>
+    <p>Stay updated with the latest trends and offers.</p>
+  </div>
+
+  <div class="rgba-overlay">This banner highlights our most important announcement for users.</div>
+
+  <button class="rgba-button">Click to Subscribe</button>
+
+  <p class="rgba-text">Subscribe to our newsletter and never miss an update!</p>
+
+  <p class="hsl-text">Your opinion matters! Share your feedback with us.</p>
+
+  <div class="hsl-box">Join our loyalty program and earn exclusive rewards.</div>
+
+  <div class="hsla-overlay">Note: Delivery times may vary during festive seasons.</div>
+
+</body>
+</html>
