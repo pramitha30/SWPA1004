@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CSS Box Model Tasks</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+    body {
+      background: #f9f9f9;
+      padding: 20px;
+    }
+    h1, h2 {
+      color: #333;
+    }
+    .box {
+      margin-bottom: 20px;
+      padding: 10px;
+      background: #e0f7fa;
+      text-align: center;
+    }
+    .inline-box {
+      display: inline-block;
+      height: 100px;
+      text-align: center;
+      line-height: 100px;
+      margin-right: 10px;
+      background: #ffe0b2;
+    }
+    .border-box {
+      width: 200px;
+      padding: 20px;
+      border: 5px solid black;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>CSS Box Model Tasks</h1>
+
+  <h2>1. Fixed Width and Height</h2>
+  <div class="box" style="width: 300px; height: 200px;">
+    This box is 300px wide and 200px tall.
+  </div>
+
+  <h2>2. Inline Boxes</h2>
+  <div class="inline-box" style="width: 150px;">Box 1</div>
+  <div class="inline-box" style="width: 100px;">Box 2</div>
+
+  <h2>3. 50% Width</h2>
+  <div class="box" style="width: 50%;">
+    This box takes 50% of the screen width. Resize window to see the effect.
+  </div>
+
+  <h2>4. Min and Max Height</h2>
+  <div class="box" style="min-height: 100px; max-height: 150px; overflow: auto;">
+    This box has minimum height 100px and maximum height 150px. If content is long, it will scroll.<br><br>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque nec lorem vel risus vehicula.
+    Duis ut magna eget odio.
+  </div>
+
+  <h2>5. Padding All Sides</h2>
+  <div class="box" style="padding: 20px;">
+    Padding is added on all sides (20px).
+  </div>
+
+  <h2>6. Different Padding</h2>
+  <div class="box" style="padding: 10px 15px 5px 20px;">
+    Padding: Top 10px, Right 15px, Bottom 5px, Left 20px
+  </div>
+
+  <h2>7. Padding Inside Paragraph</h2>
+  <div class="box" style="background: #fce4ec;">
+    <p style="padding: 10px; background: white;">This paragraph has padding inside.</p>
+  </div>
+
+  <h2>8. Solid Border</h2>
+  <div class="box" style="border: 2px solid black;">
+    This box has a solid black border.
+  </div>
+
+  <h2>9. Dotted Red Border</h2>
+  <div class="box" style="border: 2px dotted red;">
+    This is a warning box with a red dotted border.
+  </div>
+
+  <h2>10. Different Borders on Each Side</h2>
+  <div class="box" style="border-top: 2px solid blue; border-left: 2px dashed green; border-bottom: 2px double purple;">
+    Different border styles on top, left, and bottom.
+  </div>
+
+  <h2>11. Space Between Boxes</h2>
+  <div class="box" style="margin-bottom: 20px;">
+    This box has space below it.
+  </div>
+  <div class="box">This box is below the previous one.</div>
+
+  <h2>12. Center a Box</h2>
+  <div class="box" style="width: 300px; margin: auto;">
+    This box is centered using margin: auto.
+  </div>
+
+  <h2>13. Move Box with Margin</h2>
+  <div class="box" style="margin-left: 30px; margin-right: 10px;">
+    This box is pushed from the left and right.
+  </div>
+
+  <h2>14-15. Box Sizing Comparison</h2>
+  <div class="border-box" style="box-sizing: content-box; background: #ffcccb;">
+    Content-box: Padding and border are added outside width.
+  </div>
+  <div class="border-box" style="box-sizing: border-box; background: #c8e6c9;">
+    Border-box: Padding and border are included in width.
+  </div>
+
+  <h2>16. Universal Box Sizing</h2>
+  <div class="box">
+    All elements use <code>box-sizing: border-box</code> from the top style.
+  </div>
+
+</body>
+</html>

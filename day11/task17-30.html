@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Shadows & Backgrounds</title>
+
+  <style>
+    :root {
+      --card-bg: #e3f2fd;
+      --btn-bg:  #3498db;
+      --text-cl: #2c3e50;
+      --section-bg: rgba(52,152,219,0.6);
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background:#f0f2f5;
+      margin:0; padding:24px;
+      color:var(--text-cl);
+    }
+    h2  { margin:32px 0 8px; font-size:1.1rem; }
+    .demo {
+      padding:16px;
+      margin:12px 0 24px;
+      border-radius:8px;
+      background:var(--card-bg);
+      text-align:center;
+    }
+    /* ---------- SHADOW TASKS ---------- */
+    /* 17 */ .shadow-card { box-shadow:2px 2px 5px #888; }
+    /* 18 */
+    .raised-button {
+      display:inline-block;
+      padding:10px 22px;
+      background:var(--btn-bg);
+      color:#fff; border:none; border-radius:6px;
+      box-shadow:0 4px #2980b9; cursor:pointer;
+      transition:.15s;
+    }
+    .raised-button:active{
+      transform:translateY(2px);
+      box-shadow:0 2px #2471a3;
+    }
+    /* 19 */ .inset-shadow { box-shadow:inset 2px 2px 5px #888; }
+    /* 20 */ .glow { box-shadow:0 0 10px blue,0 0 20px cyan; }
+
+    /* ---------- BACKGROUND COLOR TASKS ---------- */
+    .header-sec{background:#34495e;color:#fff;}
+    .main-sec  {background:var(--section-bg);color:#fff;}
+    .footer-sec{background:#2c3e50;color:#fff;}
+
+    /* ---------- BACKGROUND IMAGE TASKS ---------- */
+   .bg {
+  background-image: url('https://via.placeholder.com/300x200?text=Sample');
+  background-color: #eaf4fc;
+  height: 150px;
+  border-radius: 8px;
+}
+
+/* 29. Full Width Background */
+.full-width {
+  background-size: cover;
+  background-position: center;
+}
+
+/* 24. Hero Section with Text Overlay */
+.hero {
+  background-size: cover;
+  background-position: center;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: bold;
+}
+
+/* 25. Background Position - Top Right */
+.top-right {
+  background-position: top right;
+  background-repeat: no-repeat;
+}
+
+/* 26. Background Centered */
+.centered {
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* 27. Repeating Background */
+.repeat {
+  background-repeat: repeat;
+}
+
+/* 28. No Repeat - Bottom Right */
+.no-repeat {
+  background-repeat: no-repeat;
+  background-position: bottom right;
+}
+
+/* 30. Contain Background */
+.contain {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 300px;
+  margin: auto;
+}
+  </style>
+</head>
+<body>
+
+  <!-- SHADOWS -->
+  <h2>17. Add a simple shadow to a card using <code>box-shadow: 2px 2px 5px #888</code>.</h2>
+  <div class="demo shadow-card">Card content here</div>
+
+  <h2>18. Create a 3D raised button effect using <code>box-shadow</code> and background.</h2>
+  <button class="raised-button">Raised Button</button>
+
+  <h2>19. Add an inner shadow using the <code>inset</code> keyword.</h2>
+  <div class="demo inset-shadow">Inner-shadow box</div>
+
+  <h2>20. Apply multiple shadows to a box to create a glowing effect.</h2>
+  <div class="demo glow">Glowing box</div>
+
+  <!-- BACKGROUND COLORS -->
+  <h2>21. Apply different background colors to 3 sections: header, main, and footer.</h2>
+  <div class="demo header-sec">Header Section</div>
+  <div class="demo main-sec">Main Section</div>
+  <div class="demo footer-sec">Footer Section</div>
+
+  <h2>22. Use transparency in background using <code>rgba()</code> with background color.</h2>
+  <div class="demo main-sec">This main section already uses RGBA transparency.</div>
+
+  <!-- BACKGROUND IMAGES -->
+  <h2>23. Add a background image to a full-width <code>&lt;div&gt;</code> using <code>background-image</code>.</h2>
+  <div class="bg full-width"></div>
+
+  <h2>24. Add a hero section with a scenic photo as background and text overlay.</h2>
+  <div class="bg hero">Hero Section Overlay Text</div>
+
+  <h2>25. Set background image position to top right and align content to bottom left.</h2>
+  <div class="bg top-right" style="display:flex;align-items:flex-end;justify-content:flex-start;padding:10px;">
+    Bottom-left content
+  </div>
+
+  <h2>26. Create a box with background image centered using <code>background-position: center</code>.</h2>
+  <div class="bg centered"></div>
+
+  <h2>27. Apply a repeating tile background image using <code>background-repeat: repeat</code>.</h2>
+  <div class="bg repeat"></div>
+
+  <h2>28. Use <code>background-repeat: no-repeat</code> and position it in the bottom-right corner.</h2>
+  <div class="bg no-repeat"></div>
+
+  <h2>29. Create a hero section with full-page image using <code>background-size: cover</code>.</h2>
+  <div class="bg full-width"></div>
+
+  <h2>30. Make a fixed-size box and apply <code>background-size: contain</code>; observe image scaling.</h2>
+  <div class="bg contain"></div>
+
+</body>
+</html>
