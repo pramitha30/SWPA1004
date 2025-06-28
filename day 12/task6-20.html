@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Travel Layout – Position Tasks</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 80px 20px 100px;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    /* Static */
+    .static-box {
+      border: 2px solid #004d40;
+      padding: 15px;
+      margin: 10px 0;
+      background: #e0f7fa;
+    }
+
+    /* Relative */
+    .relative-box {
+      position: relative;
+      width: 200px;
+      padding: 15px;
+      background: #fff3e0;
+      margin: 10px;
+    }
+
+    .box-offset-1 {
+      top: 20px;
+      left: 30px;
+    }
+
+    .box-offset-2 {
+      top: 40px;
+      left: 10px;
+    }
+
+    .relative-label {
+      position: relative;
+      top: -20px;
+      background: #ffecb3;
+      padding: 4px 8px;
+      display: inline-block;
+      font-weight: bold;
+      border-radius: 4px;
+    }
+
+    .input-field {
+      padding: 8px;
+      width: 260px;
+    }
+
+    /* Absolute */
+    .absolute-parent {
+      position: relative;
+      width: 250px;
+      height: 150px;
+      background: #e1f5fe;
+      margin-bottom: 20px;
+    }
+
+    .absolute-child {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: #0277bd;
+      color: white;
+      padding: 6px 10px;
+      border-radius: 4px;
+    }
+
+    .popup {
+      position: relative;
+      background: #ffe0b2;
+      width: 250px;
+      height: 120px;
+      margin-bottom: 20px;
+    }
+
+    .popup .close-btn {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      background: #f44336;
+      color: white;
+      padding: 3px 6px;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    .img-container {
+      position: relative;
+      width: 120px;
+    }
+
+    .img1 {
+      width: 100%;
+    }
+
+    .img2 {
+      position: absolute;
+      top: 10px;
+      left: 20px;
+      width: 60px;
+      opacity: 0.8;
+    }
+
+    .tooltip-container {
+      position: relative;
+      display: inline-block;
+      margin-top: 20px;
+    }
+
+    .tooltip-text {
+      position: absolute;
+      bottom: 120%;
+      left: 0;
+      background: black;
+      color: white;
+      padding: 6px 10px;
+      border-radius: 4px;
+      visibility: hidden;
+      white-space: nowrap;
+    }
+
+    .tooltip-container:hover .tooltip-text {
+      visibility: visible;
+    }
+
+    /* Fixed */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: #00897b;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      font-size: 18px;
+      z-index: 999;
+    }
+
+    footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: #004d40;
+      color: white;
+      text-align: center;
+      padding: 12px;
+    }
+
+    .scroll-top-btn {
+      position: fixed;
+      bottom: 60px;
+      right: 20px;
+      background: #ff9800;
+      color: white;
+      padding: 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      z-index: 1000;
+    }
+
+    /* Sticky */
+    .sticky-nav {
+      position: sticky;
+      top: 0;
+      background: #00796b;
+      color: white;
+      padding: 10px;
+      margin-bottom: 20px;
+      z-index: 100;
+    }
+
+    .side-note {
+      position: sticky;
+      top: 40px;
+      width: 180px;
+      background: #f1f8e9;
+      padding: 10px;
+      float: left;
+      margin-right: 20px;
+    }
+
+    .long-text {
+      overflow: auto;
+      max-height: 300px;
+      border: 1px solid #aaa;
+      padding: 10px;
+    }
+
+    .sticky-heading {
+      position: sticky;
+      top: 0;
+      background: #c8e6c9;
+      padding: 6px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Fixed Header -->
+  <header> TravelGo — Explore the World with Us!</header>
+
+  <!-- Static Boxes -->
+  <div class="static-box"> Destination: Tokyo, Japan</div>
+  <div class="static-box"> Destination: Paris, France</div>
+  <div class="static-box"> Destination: Cape Town, South Africa</div>
+
+  <!-- Relative Position -->
+  <div class="relative-box box-offset-1"> Hotel Check-in Box</div>
+  <div class="relative-box box-offset-2"> Packing Reminder Box</div>
+
+  <label class="relative-label" for="passport">Passport Number:</label>
+  <input class="input-field" type="text" id="passport" placeholder="Enter passport number">
+
+  <!-- Absolute Position -->
+  <div class="absolute-parent">
+    <div class="absolute-child"> Trip Dates</div>
+  </div>
+
+  <div class="popup">
+    <div class="close-btn">×</div>
+    <p style="padding: 10px;"> Trip Details Popup</p>
+  </div>
+
+  <div class="img-container">
+    <img src="beach.jpg" class="img1" alt="Main Image">
+    <img src="city.jpg" class="img2" alt="Overlay">
+  </div>
+
+  <div class="tooltip-container">
+    Hover over <strong>travel tips</strong>
+    <div class="tooltip-text"> Pack light & smart!</div>
+  </div>
+
+  <!-- Scroll to Top -->
+  <div class="scroll-top-btn"> Back to Top</div>
+
+  <!-- Sticky Navigation -->
+  <nav class="sticky-nav"> Explore |  Plan |  Book</nav>
+
+  <!-- Sticky Side Note -->
+  <aside class="side-note">
+    Tip: Don't forget travel insurance and local currency!
+  </aside>
+
+  <!-- Sticky Inside Scroll -->
+  <div class="long-text">
+    <div class="sticky-heading"> Destination Highlights</div>
+    <p>From vibrant city streets to serene beaches, your travel experience will be unforgettable. Explore ancient temples, modern architecture, and delicious cuisines from around the world.</p>
+    <p>Walk through history in Rome, cycle through Kyoto, or take a gondola ride in Venice. There's magic everywhere you go.</p>
+    <p>Try out the street food, visit local markets, and immerse yourself in cultures vastly different from your own.</p>
+    <p>Remember to take breaks, enjoy sunsets, and capture moments — not just photos.</p>
+  </div>
+
+  <!-- Fixed Footer -->
+  <footer> TravelGo © 2025 — Follow us on Instagram, Twitter, and Facebook</footer>
+
+</body>
+</html>

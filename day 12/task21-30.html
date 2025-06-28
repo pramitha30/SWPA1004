@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Float & Z-Index Examples</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      margin: 0;
+    }
+
+    /* Task 21: Float image left */
+    .float-img {
+      float: left;
+      margin-right: 15px;
+      width: 150px;
+    }
+
+    /* Task 22: Float left & right */
+    .float-layout {
+      overflow: auto;
+      margin: 20px 0;
+    }
+    .left-box, .right-box, .center-box {
+      height: 100px;
+      text-align: center;
+      line-height: 100px;
+      font-weight: bold;
+    }
+    .left-box {
+      float: left;
+      width: 100px;
+      background: #ffcccb;
+    }
+    .right-box {
+      float: right;
+      width: 100px;
+      background: #90ee90;
+    }
+    .center-box {
+      margin: 0 120px;
+      background: #add8e6;
+    }
+
+    /* Task 23: Horizontal nav */
+    ul.nav {
+      list-style: none;
+      padding: 0;
+      margin: 20px 0;
+      background: #333;
+      overflow: hidden;
+    }
+    ul.nav li {
+      float: left;
+    }
+    ul.nav li a {
+      display: block;
+      color: white;
+      padding: 12px 20px;
+      text-decoration: none;
+    }
+    ul.nav li a:hover {
+      background: #555;
+    }
+
+    /* Task 24: Two-column layout */
+    .two-columns {
+      margin-top: 20px;
+    }
+    .sidebar {
+      float: left;
+      width: 30%;
+      background: #f0f0f0;
+      padding: 10px;
+    }
+    .main-content {
+      float: right;
+      width: 68%;
+      background: #e8f4ff;
+      padding: 10px;
+    }
+
+    /* Task 25: Clear fix */
+    .clear-fix {
+      clear: both;
+      padding: 15px;
+      background: #ccc;
+      margin-top: 10px;
+    }
+
+    /* Z-Index tasks 26–30 */
+    .z-container {
+      position: relative;
+      height: 200px;
+      margin-top: 40px;
+    }
+
+    .z-box1, .z-box2 {
+      width: 120px;
+      height: 120px;
+      position: absolute;
+    }
+
+    .z-box1 {
+      background: red;
+      top: 0;
+      left: 20px;
+      z-index: 1;
+    }
+
+    .z-box2 {
+      background: blue;
+      top: 30px;
+      left: 50px;
+      z-index: 2;
+    }
+
+    /* Task 27: Sticky header with z-index */
+    .sticky-header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: darkslategray;
+      color: white;
+      padding: 15px;
+      font-weight: bold;
+    }
+
+    /* Task 28: Image with overlay button */
+    .image-overlay {
+      position: relative;
+      width: 300px;
+      margin-top: 40px;
+    }
+
+    .image-overlay img {
+      width: 100%;
+      display: block;
+    }
+
+    .image-overlay button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 5;
+      padding: 10px 15px;
+      background: #ff4081;
+      border: none;
+      color: white;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    /* Task 29: Three boxes stacked with z-index */
+    .stack-container {
+      position: relative;
+      height: 150px;
+      margin-top: 30px;
+    }
+
+    .stack-box {
+      width: 100px;
+      height: 100px;
+      position: absolute;
+    }
+
+    .stack1 {
+      background: #f44336;
+      top: 10px;
+      left: 10px;
+      z-index: 1;
+    }
+
+    .stack2 {
+      background: #2196f3;
+      top: 30px;
+      left: 40px;
+      z-index: 2;
+    }
+
+    .stack3 {
+      background: #4caf50;
+      top: 50px;
+      left: 70px;
+      z-index: 3;
+    }
+
+    /* Task 30: Modal popup */
+    .modal {
+      position: absolute;
+      top: 1400px;
+      left: 0;
+      width: 100%;
+      height: 200px;
+      background: rgba(0, 0, 0, 0.8);
+      color: white;
+      text-align: center;
+      padding: 40px;
+      z-index: 999;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Task 27: Sticky header -->
+  <div class="sticky-header">🌐 My Sticky Website Header</div>
+
+  <!-- Task 21: Float one image and text -->
+  <h3> Float Image Left</h3>
+  <img src="beach.jpg" class="float-img" alt="Placeholder">
+  <p>This is an example paragraph next to a floated image. The image floats left, and this text flows around it. This technique is common for articles, blog posts, and image captions.</p>
+
+  <!-- Task 22: Float left, right, center -->
+  <h3>22. Float Boxes Left and Right</h3>
+  <div class="float-layout">
+    <div class="left-box">Left</div>
+    <div class="right-box">Right</div>
+    <div class="center-box">Center Content</div>
+  </div>
+
+  <!-- Task 23: Horizontal nav menu -->
+  <h3>23. Horizontal Navigation</h3>
+  <ul class="nav">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Services</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+
+  <!-- Task 24: Two-column layout -->
+  <h3>24. Two-Column Layout</h3>
+  <div class="two-columns">
+    <div class="sidebar">Sidebar content (e.g., menu, ads)</div>
+    <div class="main-content">Main content area (articles, posts, etc.)</div>
+  </div>
+
+  <!-- Task 25: Clear float -->
+  <div class="clear-fix">This content appears below the floated columns.</div>
+
+  <!-- Task 26: Overlapping boxes -->
+  <h3>26. Overlapping Boxes with z-index</h3>
+  <div class="z-container">
+    <div class="z-box1">Box 1</div>
+    <div class="z-box2">Box 2</div>
+  </div>
+
+  <!-- Task 28: Image overlay button -->
+  <h3>28. Image with Overlay Button</h3>
+  <div class="image-overlay">
+    <img src="city.jpg" alt="Sample">
+    <button>Click Me</button>
+  </div>
+
+  <!-- Task 29: Stack boxes by z-index -->
+  <h3>29. Stack Boxes by z-index</h3>
+  <div class="stack-container">
+    <div class="stack-box stack1">Z1</div>
+    <div class="stack-box stack2">Z2</div>
+    <div class="stack-box stack3">Z3</div>
+  </div>
+
+  <!-- Task 30: Modal simulation -->
+  <div class="modal">
+    <h2> Modal Popup</h2>
+    <p>This is a simulated modal using absolute + z-index.</p>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>task 1-5</title>
+  <style>
+    /* Task 1: span with display block */
+    .block-span {
+      display: block;
+      background-color: #add8e6;
+      padding: 10px;
+      margin-bottom: 15px;
+    }
+
+    /* Task 2: inline-styled div (button look) */
+    .inline-div {
+      display: inline;
+      background-color: #ff6347;
+      color: white;
+      padding: 8px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    /* Task 3: inline-block divs */
+    .inline-box {
+      display: inline-block;
+      width: 130px;
+      height: 60px;
+      background-color: #98fb98;
+      margin: 5px;
+      text-align: center;
+      line-height: 60px;
+      font-weight: bold;
+    }
+
+    /* Task 4: show on hover using display none */
+    .hover-area .secret {
+      display: none;
+      background-color: #ffeb3b;
+      padding: 10px;
+      margin-top: 5px;
+    }
+
+    .hover-area:hover .secret {
+      display: block;
+    }
+
+    /* Task 5: block-styled link */
+    .block-link {
+      display: block;
+      background-color: #4b0082;
+      color: white;
+      padding: 12px;
+      text-decoration: none;
+      width: fit-content;
+      border-radius: 4px;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Task 1: span with display block -->
+  <span class="block-span">🌟 Welcome to the Coding World!</span>
+
+  <!-- Task 2: div with inline display (styled like button) -->
+  <div class="inline-div">🚀 Launch</div>
+
+  <!-- Task 3: two inline-block divs side by side -->
+  <div class="inline-box">HTML</div>
+  <div class="inline-box">CSS</div>
+
+  <!-- Task 4: display none then show on hover -->
+  <div class="hover-area" style="margin-top: 20px;">
+    👀 Hover to reveal a secret
+    <div class="secret">✨ You found the hidden message!</div>
+  </div>
+
+  <!-- Task 5: a tag styled as block -->
+  <a href="#" class="block-link">📘 Learn More</a>
+
+</body>
+</html>
