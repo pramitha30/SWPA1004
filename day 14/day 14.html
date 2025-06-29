@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Register for Our Web Development Bootcamp</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Form Container -->
+  <div class="form-container">
+    <h1>Register for Our Web Development Bootcamp</h1>
+
+    <form action="#thankyou">
+      <fieldset>
+        <legend>Personal Information</legend>
+
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="name" required maxlength="50" />
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required />
+      </fieldset>
+
+      <fieldset>
+        <legend>Course Details</legend>
+
+        <label for="course">Select Course:</label>
+        <select id="course" name="course" required>
+          <option value="">--Select--</option>
+          <option value="frontend">Frontend Development</option>
+          <option value="backend">Backend Development</option>
+          <option value="fullstack">Full Stack Development</option>
+        </select>
+
+        <p>Mode of Learning:</p>
+        <label><input type="radio" name="mode" value="online" required /> Online</label>
+        <label><input type="radio" name="mode" value="offline" required /> Offline</label>
+      </fieldset>
+
+      <label for="comments">Any Comments:</label>
+      <textarea id="comments" name="comments" rows="4"></textarea>
+
+      <div class="buttons">
+        <button type="submit">Submit</button>
+        <button type="reset">Reset</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Thank You Message -->
+  <div id="thankyou" class="thank-you">
+    <div class="thank-you-box">
+      <h2>Thank You for Registering!</h2>
+      <a href="#" class="close-btn">Close</a>
+    </div>
+  </div>
+
+</body>
+</html>
