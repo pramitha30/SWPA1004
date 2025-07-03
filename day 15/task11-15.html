@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Flexbox Alignment Tasks</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 20px;
+    }
+
+    h2 {
+      margin-top: 40px;
+      margin-bottom: 10px;
+    }
+
+    /* Common Box Style */
+    .box, .align-box, .stretch-box, .item {
+      background-color: #4caf50;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    /* Align-items: center with height */
+    .align-center-container {
+      display: flex;
+      align-items: center;
+      height: 200px;
+      background: #f0f0f0;
+      gap: 15px;
+    }
+
+    /* Align-items: flex-start */
+    .align-start-container {
+      display: flex;
+      align-items: flex-start;
+      height: 200px;
+      background: #e0f7fa;
+      gap: 15px;
+    }
+
+    /* Align-items: flex-end */
+    .align-end-container {
+      display: flex;
+      align-items: flex-end;
+      height: 200px;
+      background: #ede7f6;
+      gap: 15px;
+    }
+
+    .tall {
+      height: 120px;
+    }
+
+    /* Two-column layout */
+    .two-column {
+      display: flex;
+      height: 200px;
+      margin-bottom: 30px;
+    }
+
+    .left-column {
+      flex: 1;
+      background: #c8e6c9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .right-column {
+      flex: 1;
+      background: #ffcdd2;
+      padding: 20px;
+    }
+
+    /* Align-items: stretch */
+    .stretch-container {
+      display: flex;
+      align-items: stretch;
+      height: 200px;
+      background: #dcedc8;
+      gap: 15px;
+    }
+
+    .stretch-box {
+      flex: 1;
+      background: #8bc34a;
+      color: white;
+      padding: 10px;
+      /* No height defined to allow stretch */
+    }
+
+    /* Card layout: top & bottom alignment */
+    .card-layout {
+      display: flex;
+      gap: 20px;
+    }
+
+    .card {
+      flex: 1;
+      height: 200px;
+      background: #fff9c4;
+      border: 1px solid #ccc;
+      display: flex;
+      padding: 20px;
+    }
+
+    .top-align {
+      align-items: flex-start;
+    }
+
+    .bottom-align {
+      align-items: flex-end;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Align Items: Center (Vertically)</h2>
+  <section class="align-center-container">
+    <div class="align-box">Center 1</div>
+    <div class="align-box">Center 2</div>
+    <div class="align-box">Center 3</div>
+  </section>
+
+  <h2>Align Items: Flex-Start</h2>
+  <section class="align-start-container">
+    <div class="align-box tall">Start 1</div>
+    <div class="align-box">Start 2</div>
+  </section>
+
+  <h2>Align Items: Flex-End</h2>
+  <section class="align-end-container">
+    <div class="align-box">End 1</div>
+    <div class="align-box tall">End 2</div>
+  </section>
+
+  <h2>Two Column Layout (Left Vertically Centered)</h2>
+  <section class="two-column">
+    <div class="left-column">Vertically Centered</div>
+    <div class="right-column">Not Centered</div>
+  </section>
+
+  <h2>Align Items: Stretch</h2>
+  <section class="stretch-container">
+    <div class="stretch-box">Stretch 1</div>
+    <div class="stretch-box">Stretch 2</div>
+  </section>
+
+  <h2>Card Layout (Top and Bottom Alignment)</h2>
+  <section class="card-layout">
+    <div class="card top-align">
+      <p>This content is top-aligned.</p>
+    </div>
+    <div class="card bottom-align">
+      <p>This content is bottom-aligned.</p>
+    </div>
+  </section>
+
+</body>
+</html>

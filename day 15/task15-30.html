@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Flexbox Tasks 16–30</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    h2 {
+      margin-top: 40px;
+    }
+
+    section {
+      margin-bottom: 40px;
+    }
+
+    .flex-container {
+      display: flex;
+      gap: 10px;
+      background: #f0f0f0;
+      padding: 10px;
+      flex-wrap: wrap;
+    }
+
+    .flex-item {
+      background: #4caf50;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      flex: 0 0 auto;
+    }
+
+    .nowrap-container {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+    }
+
+    .column-reverse {
+      flex-direction: column-reverse;
+      height: 300px;
+    }
+
+    /* Task 19: Order */
+    .order-demo .item:nth-child(1) { order: 2; }
+    .order-demo .item:nth-child(2) { order: 1; }
+    .order-demo .item:nth-child(3) { order: 3; }
+
+    /* Task 20: Flex-grow single */
+    .grow-demo .item:first-child { flex-grow: 1; }
+
+    /* Task 21: Middle wider */
+    .column-layout {
+      display: flex;
+    }
+    .column-layout .item {
+      flex-grow: 1;
+      padding: 20px;
+      background: #2196f3;
+      color: white;
+      text-align: center;
+    }
+    .column-layout .item.middle {
+      flex-grow: 2;
+      background: #1976d2;
+    }
+
+    /* Task 22: flex-basis */
+    .basis-demo .item {
+      flex-basis: 300px;
+    }
+
+    /* Task 23: flex-shrink */
+    .shrink-demo .item:first-child {
+      flex-shrink: 0;
+      flex-basis: 200px;
+    }
+
+    /* Task 24: flex: 1 shorthand */
+    .equal-demo .item {
+      flex: 1;
+    }
+
+    /* Task 25: align-self */
+    .align-self-demo {
+      align-items: center;
+    }
+    .align-self-demo .item.special {
+      align-self: flex-start;
+    }
+
+    /* Task 26: Nested Flex */
+    .nested-parent {
+      display: flex;
+      gap: 20px;
+    }
+    .nested-child {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    /* Task 27: Sidebar Layout */
+    .sidebar-layout {
+      display: flex;
+      height: 300px;
+    }
+    .sidebar {
+      width: 200px;
+      background: #333;
+      color: white;
+      padding: 15px;
+    }
+    .main-content {
+      flex: 1;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      background: #f5f5f5;
+    }
+
+    /* Task 28: Navbar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #222;
+      color: white;
+      padding: 15px 30px;
+    }
+    .navbar .menu {
+      display: flex;
+      gap: 20px;
+    }
+
+    /* Task 29: Responsive 3-card */
+    .card-container {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .card {
+      flex: 1;
+      min-width: 250px;
+      background: #ffecb3;
+      padding: 20px;
+      text-align: center;
+      border: 1px solid #ccc;
+    }
+
+    /* Task 30: Pricing Plans */
+    .pricing-section {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: flex-start;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .plan {
+      background: #e1f5fe;
+      padding: 20px;
+      border: 1px solid #90caf9;
+      width: 200px;
+    }
+
+    @media (max-width: 768px) {
+      .card-container {
+        flex-direction: column;
+      }
+      .pricing-section {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Task 16: flex-wrap: wrap</h2>
+  <section class="flex-container">
+    <div class="flex-item">1</div><div class="flex-item">2</div><div class="flex-item">3</div>
+    <div class="flex-item">4</div><div class="flex-item">5</div><div class="flex-item">6</div>
+    <div class="flex-item">7</div><div class="flex-item">8</div><div class="flex-item">9</div>
+    <div class="flex-item">10</div>
+  </section>
+
+  <h2>Task 17: flex-wrap: nowrap</h2>
+  <section class="flex-container nowrap-container">
+    <div class="flex-item">1</div><div class="flex-item">2</div><div class="flex-item">3</div>
+    <div class="flex-item">4</div><div class="flex-item">5</div><div class="flex-item">6</div>
+    <div class="flex-item">7</div><div class="flex-item">8</div><div class="flex-item">9</div>
+    <div class="flex-item">10</div>
+  </section>
+
+  <h2>Task 18: column-reverse + wrap</h2>
+  <section class="flex-container column-reverse">
+    <div class="flex-item">Item A</div>
+    <div class="flex-item">Item B</div>
+    <div class="flex-item">Item C</div>
+  </section>
+
+  <h2>Task 19: order</h2>
+  <section class="flex-container order-demo">
+    <div class="item">Item 1</div>
+    <div class="item">Item 2</div>
+    <div class="item">Item 3</div>
+  </section>
+
+  <h2>Task 20: flex-grow</h2>
+  <section class="flex-container grow-demo">
+    <div class="item">Grow</div>
+    <div class="item">Normal</div>
+  </section>
+
+  <h2>Task 21: 3-column layout, middle grows more</h2>
+  <section class="column-layout">
+    <div class="item">Left</div>
+    <div class="item middle">Middle</div>
+    <div class="item">Right</div>
+  </section>
+
+  <h2>Task 22: flex-basis</h2>
+  <section class="flex-container basis-demo">
+    <div class="item">300px Fixed</div>
+    <div class="item">Flex</div>
+  </section>
+
+  <h2>Task 23: flex-shrink: 0</h2>
+  <section class="flex-container shrink-demo">
+    <div class="item">No Shrink</div>
+    <div class="item">Can Shrink</div>
+  </section>
+
+  <h2>Task 24: flex: 1 shorthand</h2>
+  <section class="flex-container equal-demo">
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+  </section>
+
+  <h2>Task 25: align-self</h2>
+  <section class="flex-container align-self-demo">
+    <div class="item">Normal</div>
+    <div class="item special">Top Aligned</div>
+    <div class="item">Normal</div>
+  </section>
+
+  <h2>Task 26: Nested Flex</h2>
+  <section class="nested-parent">
+    <div class="nested-child">
+      <div class="item">Nested 1</div>
+      <div class="item">Nested 2</div>
+    </div>
+    <div class="item">Side</div>
+  </section>
+
+  <h2>Task 27: Sidebar Layout</h2>
+  <section class="sidebar-layout">
+    <div class="sidebar">Sidebar Menu</div>
+    <div class="main-content">
+      <div>Main Content 1</div>
+      <div>Main Content 2</div>
+    </div>
+  </section>
+
+  <h2>Task 28: Responsive Navbar</h2>
+  <header class="navbar">
+    <div class="logo">MySite</div>
+    <div class="menu">
+      <div>Home</div>
+      <div>About</div>
+      <div>Contact</div>
+    </div>
+  </header>
+
+  <h2>Task 29: 3-Card Responsive Layout</h2>
+  <section class="card-container">
+    <div class="card">Card 1</div>
+    <div class="card">Card 2</div>
+    <div class="card">Card 3</div>
+  </section>
+
+  <h2>Task 30: Pricing Plans</h2>
+  <section class="pricing-section">
+    <div class="plan">
+      <h3>Basic</h3>
+      <p>$9/month</p>
+    </div>
+    <div class="plan">
+      <h3>Pro</h3>
+      <p>$19/month</p>
+    </div>
+    <div class="plan">
+      <h3>Enterprise</h3>
+      <p>$49/month</p>
+    </div>
+  </section>
+
+</body>
+</html>
