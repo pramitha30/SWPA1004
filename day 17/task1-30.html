@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Day 17 - Pseudo-Classes & Pseudo-Elements</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      padding: 20px;
+    }
+
+    /* 🔹 1–5: :hover */
+    .hover-btn:hover {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    nav a:hover {
+      color: tomato;
+    }
+
+    .tooltip {
+      position: relative;
+      display: inline-block;
+    }
+
+    .tooltip .tip {
+      visibility: hidden;
+      background: #333;
+      color: #fff;
+      padding: 5px 8px;
+      position: absolute;
+      top: 120%;
+      left: 0;
+      border-radius: 4px;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .tooltip:hover .tip {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .card {
+      padding: 20px;
+      border: 1px solid #ccc;
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: scale(1.1);
+    }
+
+    .underline-link {
+      text-decoration: none;
+      position: relative;
+      color: black;
+    }
+
+    .underline-link:hover::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 2px;
+      background: blue;
+    }
+
+    /* 🟣 6–8: :focus */
+    input:focus {
+      border: 2px solid blue;
+    }
+
+    textarea:focus {
+      background-color: #e0f7fa;
+    }
+
+    .glow:focus {
+      box-shadow: 0 0 10px #00f;
+    }
+
+    /* 🔴 9–10: :active */
+    .active-btn:active {
+      transform: scale(0.95);
+    }
+
+    .active-link:active {
+      color: red;
+    }
+
+    /* 🟢 11–15: :visited and other selectors */
+    .visited-link:visited {
+      color: gray;
+    }
+
+    .visited-list a:visited {
+      color: gray;
+    }
+
+    table tr:nth-child(odd) {
+      background-color: #f9f9f9;
+    }
+
+    table tr:nth-child(even) {
+      background-color: #ddd;
+    }
+
+    ul li:first-child {
+      background: yellow;
+    }
+
+    section p:last-child {
+      font-weight: bold;
+    }
+
+    /* 🟨 16–22: ::before and ::after */
+    .star-list li::before {
+      content: "★ ";
+      color: gold;
+    }
+
+    blockquote::before {
+      content: "“";
+    }
+
+    blockquote::after {
+      content: "”";
+    }
+
+    .search-btn::before {
+      content: "🔍 ";
+    }
+
+    .ribbon::before,
+    .ribbon::after {
+      content: "";
+      position: absolute;
+      border: 5px solid red;
+      top: 10px;
+    }
+
+    .ribbon {
+      position: relative;
+      background: lightgray;
+      padding: 10px;
+    }
+
+    h2::after {
+      content: " NEW";
+      background: red;
+      color: white;
+      font-size: 12px;
+      padding: 2px 6px;
+      margin-left: 10px;
+      border-radius: 4px;
+      position: relative;
+      top: -4px;
+    }
+
+    .section::after {
+      content: "";
+      display: block;
+      height: 2px;
+      background: #ccc;
+      margin: 20px 0;
+    }
+
+    .loading::before {
+      content: "";
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border: 2px solid #000;
+      border-top: 2px solid transparent;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin-right: 8px;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* 🟫 23–26: ::first-line and ::first-letter */
+    .first-line::first-line {
+      font-weight: bold;
+      color: blue;
+    }
+
+    .first-letter::first-letter {
+      font-size: 2em;
+      color: crimson;
+    }
+
+    .drop-cap::first-letter {
+      float: left;
+      font-size: 3em;
+      line-height: 1;
+      margin-right: 5px;
+    }
+
+    blockquote.first-line-highlight::first-line {
+      background-color: yellow;
+    }
+
+    /* 🔵 27–30: Combined selectors */
+    .star-hover::before {
+      content: "★ ";
+      color: gray;
+      transition: color 0.3s;
+    }
+
+    .star-hover:hover::before {
+      color: gold;
+    }
+
+    .hover-hint::after {
+      content: " Hover to see more!";
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .hover-hint:hover::after {
+      opacity: 1;
+      color: #555;
+    }
+
+    .animated-link {
+      position: relative;
+      text-decoration: none;
+      color: black;
+    }
+
+    .animated-link::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      background: blue;
+      bottom: 0;
+      left: 0;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s;
+    }
+
+    .animated-link:hover::after {
+      transform: scaleX(1);
+    }
+
+    .first-hover::first-letter {
+      font-size: 2em;
+      transition: transform 0.3s;
+      display: inline-block;
+    }
+
+    .first-hover:hover::first-letter {
+      transform: scale(1.5);
+    }
+  </style>
+</head>
+<body>
+
+  <h2>:hover Examples</h2>
+  <button class="hover-btn">Hover Me</button>
+  <nav><a href="#">Home</a> | <a href="#">About</a></nav>
+  <div class="tooltip">Hover for tooltip
+    <div class="tip">Tooltip text</div>
+  </div>
+  <div class="card">Hover Card</div>
+  <a href="#" class="underline-link">Underline Link</a>
+
+  <h2>:focus Examples</h2>
+  <input type="text" placeholder="Focus me">
+  <textarea placeholder="Focus on me"></textarea>
+  <input type="text" class="glow" placeholder="Glowing input">
+
+  <h2>:active Examples</h2>
+  <button class="active-btn">Click Me</button>
+  <a href="#" class="active-link">Active Link</a>
+
+  <h2>:visited & Others</h2>
+  <a href="#" class="visited-link">Visited Link</a>
+  <div class="visited-list">
+    <a href="#">Google</a>
+    <a href="#">YouTube</a>
+  </div>
+  <table>
+    <tr><td>Row 1</td></tr>
+    <tr><td>Row 2</td></tr>
+    <tr><td>Row 3</td></tr>
+  </table>
+  <ul>
+    <li>First Item</li>
+    <li>Second Item</li>
+  </ul>
+  <section>
+    <p>Paragraph 1</p>
+    <p>Last Paragraph</p>
+  </section>
+
+  <h2>::before & ::after Examples</h2>
+  <ul class="star-list">
+    <li>Item One</li>
+    <li>Item Two</li>
+  </ul>
+  <blockquote>Quotes make things sound wise.</blockquote>
+  <button class="search-btn">Search</button>
+  <div class="ribbon">Product with Ribbon</div>
+  <h2>New Feature</h2>
+  <div class="section">Section Content</div>
+  <div class="loading">Loading...</div>
+
+  <h2>::first-line and ::first-letter</h2>
+  <p class="first-line">This line is bold and blue at the start.</p>
+  <p class="first-letter">This starts with a styled first letter.</p>
+  <p class="drop-cap">Magazine-style drop cap at the beginning of this paragraph.</p>
+  <blockquote class="first-line-highlight">Highlight the first line of a quote.</blockquote>
+
+  <h2>Combined Pseudo-Classes & Elements</h2>
+  <p class="star-hover">Star on hover</p>
+  <p class="hover-hint">Hover here</p>
+  <a href="#" class="animated-link">Animated Underline</a>
+  <p class="first-hover">Watch the first letter grow on hover.</p>
+
+</body>
+</html>
