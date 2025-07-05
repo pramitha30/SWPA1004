@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CSS Grid Master Layout</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: sans-serif;
+      margin: 20px;
+      background: #f9f9f9;
+    }
+    h2 {
+      margin: 40px 0 10px;
+    }
+    .grid {
+      display: grid;
+      gap: 10px;
+      margin-bottom: 50px;
+    }
+    .box {
+      background: #4CAF50;
+      color: white;
+      padding: 15px;
+      text-align: center;
+      border-radius: 6px;
+    }
+
+    /* Named grid area example */
+    .named-areas {
+      grid-template-areas:
+        "header header"
+        "sidebar main";
+      grid-template-columns: 1fr 3fr;
+    }
+    .header { grid-area: header; background: #2196F3; }
+    .sidebar { grid-area: sidebar; background: #4CAF50; }
+    .main { grid-area: main; background: #FFC107; }
+
+    /* Nav/sidebar/content/footer layout */
+    .layout {
+      grid-template-areas:
+        "nav nav"
+        "sidebar content"
+        "footer footer";
+      grid-template-columns: 200px 1fr;
+      grid-template-rows: auto 1fr auto;
+    }
+    .nav { grid-area: nav; background: #607D8B; }
+    .content { grid-area: content; background: #CDDC39; }
+    .footer { grid-area: footer; background: #795548; }
+
+    /* Responsive grid */
+    .responsive-grid {
+      display: grid;
+      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+    .card {
+      background: #E91E63;
+      color: white;
+      padding: 20px;
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Flexbox inside grid card */
+    .card img {
+      max-width: 100%;
+      border-radius: 6px;
+    }
+    .info {
+      margin-top: 10px;
+    }
+
+    /* Dashboard layout */
+    .dashboard {
+      grid-template-areas:
+        "header header"
+        "sidebar main"
+        "sidebar widgets";
+      grid-template-columns: 200px 1fr;
+      grid-template-rows: auto 1fr auto;
+      height: 400px;
+    }
+    .dashboard .header { grid-area: header; background: #3F51B5; }
+    .dashboard .sidebar { grid-area: sidebar; background: #009688; }
+    .dashboard .main { grid-area: main; background: #FFEB3B; }
+    .dashboard .widgets { grid-area: widgets; background: #FF5722; }
+
+    /* Magazine layout */
+    .magazine-layout {
+      grid-template-columns: 2fr 1fr;
+      position: relative;
+    }
+    .magazine-layout .text {
+      background: white;
+      padding: 20px;
+      z-index: 1;
+    }
+    .magazine-layout .image {
+      background: url('https://via.placeholder.com/300') no-repeat center/cover;
+      grid-column: 2;
+      grid-row: 1;
+      height: 200px;
+      z-index: 0;
+    }
+
+    /* Calendar */
+    .calendar {
+      grid-template-columns: repeat(7, 1fr);
+      grid-template-rows: repeat(5, 100px);
+      gap: 5px;
+    }
+    .calendar .day {
+      font-weight: bold;
+      background: #eee;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .calendar .cell {
+      background: #cfd8dc;
+      padding: 5px;
+    }
+
+    @media (min-width: 900px) {
+      .responsive-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    @media (min-width: 600px) and (max-width: 899px) {
+      .responsive-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 599px) {
+      .responsive-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h2>1. Named Grid Areas</h2>
+  <div class="grid named-areas">
+    <div class="box header">Header</div>
+    <div class="box sidebar">Sidebar</div>
+    <div class="box main">Main</div>
+  </div>
+
+  <h2>2. Layout: Nav, Sidebar, Content, Footer</h2>
+  <div class="grid layout">
+    <div class="box nav">Nav</div>
+    <div class="box sidebar">Sidebar</div>
+    <div class="box content">Content</div>
+    <div class="box footer">Footer</div>
+  </div>
+
+  <h2>3. Responsive Product Grid with Flexbox</h2>
+  <div class="responsive-grid">
+    <div class="card">
+      <img src="https://via.placeholder.com/150" alt="Product">
+      <div class="info">
+        <h4>Product 1</h4>
+        <p>Price: $10</p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://via.placeholder.com/150" alt="Product">
+      <div class="info">
+        <h4>Product 2</h4>
+        <p>Price: $20</p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://via.placeholder.com/150" alt="Product">
+      <div class="info">
+        <h4>Product 3</h4>
+        <p>Price: $30</p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://via.placeholder.com/150" alt="Product">
+      <div class="info">
+        <h4>Product 4</h4>
+        <p>Price: $40</p>
+      </div>
+    </div>
+  </div>
+
+  <h2>4. Dashboard Layout</h2>
+  <div class="grid dashboard">
+    <div class="box header">Header</div>
+    <div class="box sidebar">Sidebar</div>
+    <div class="box main">Main Content</div>
+    <div class="box widgets">Widgets</div>
+  </div>
+
+  <h2>5. Magazine-style Layout</h2>
+  <div class="grid magazine-layout">
+    <div class="text box">Magazine Article Text</div>
+    <div class="image"></div>
+  </div>
+
+  <h2>6. Calendar Layout</h2>
+  <div class="grid calendar">
+    <div class="day">Sun</div>
+    <div class="day">Mon</div>
+    <div class="day">Tue</div>
+    <div class="day">Wed</div>
+    <div class="day">Thu</div>
+    <div class="day">Fri</div>
+    <div class="day">Sat</div>
+    <!-- Sample calendar days -->
+    <div class="cell">1</div>
+    <div class="cell">2</div>
+    <div class="cell">3</div>
+    <div class="cell">4</div>
+    <div class="cell">5</div>
+    <div class="cell">6</div>
+    <div class="cell">7</div>
+    <div class="cell">8</div>
+    <div class="cell">9</div>
+    <div class="cell">10</div>
+    <div class="cell">11</div>
+    <div class="cell">12</div>
+    <div class="cell">13</div>
+    <div class="cell">14</div>
+    <div class="cell">15</div>
+    <div class="cell">16</div>
+    <div class="cell">17</div>
+    <div class="cell">18</div>
+    <div class="cell">19</div>
+    <div class="cell">20</div>
+    <div class="cell">21</div>
+    <div class="cell">22</div>
+    <div class="cell">23</div>
+    <div class="cell">24</div>
+    <div class="cell">25</div>
+    <div class="cell">26</div>
+    <div class="cell">27</div>
+    <div class="cell">28</div>
+  </div>
+
+</body>
+</html>
