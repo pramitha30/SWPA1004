@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Day 19 – Responsive Design & CSS Variables</title>
+  <style>
+    /* 🎨 21–30: CSS Variables */
+    :root {
+      --primary-color: #3498db;
+      --font-size-base: 16px;
+      --heading-font-size: 2rem;
+      --btn-padding: 1em 2em;
+      --btn-radius: 10px;
+      --btn-color: #e74c3c;
+      --section-spacing: 4rem;
+      --card-gap: 1.5rem;
+      --card-bg: #fff;
+      --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      --container-width: 1200px;
+      --side-padding: 2rem;
+      --font-scale: 1;
+      --gap: 2rem;
+    }
+
+    body {
+      font-size: calc(var(--font-size-base) * var(--font-scale));
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f4;
+      color: #333;
+    }
+
+    .wrapper {
+      max-width: var(--container-width);
+      margin: 0 auto;
+      padding: 0 var(--side-padding);
+    }
+
+    h1 {
+      font-size: var(--heading-font-size);
+      color: var(--primary-color);
+    }
+
+    section {
+      padding: var(--section-spacing) 0;
+    }
+
+    /* 🔹 1–10: Responsive Units */
+    .em-example {
+      font-size: 20px;
+    }
+
+    .em-example p {
+      font-size: 1.5em;
+    }
+
+    .layout-container {
+      width: 90%;
+      margin: 0 auto;
+      background: #ddd;
+      padding: 1rem;
+    }
+
+    .vw-heading {
+      font-size: 5vw;
+    }
+
+    .full-height {
+      height: 100vh;
+      background: #eee;
+    }
+
+    .flex-center {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #ccc;
+    }
+
+    .card {
+      padding: 2rem;
+      margin: 5%;
+      background: white;
+      box-shadow: var(--card-shadow);
+    }
+
+    .responsive-img {
+      width: 80%;
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .readable-text {
+      line-height: 1.5em;
+    }
+
+    .responsive-btn {
+      padding: 1em 2em;
+      font-size: 1em;
+    }
+
+    /* 🔹 11–20: Media Queries */
+    .two-column {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .two-column > div {
+      flex: 1;
+      background: #fff;
+      padding: 1rem;
+    }
+
+    .responsive-navbar {
+      display: flex;
+      justify-content: space-around;
+      background: #333;
+      color: white;
+      padding: 1em;
+    }
+
+    .responsive-navbar a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .bg-change {
+      padding: 2rem;
+      background: #ccc;
+    }
+
+    .row-cards {
+      display: flex;
+      flex-direction: row;
+      gap: 1rem;
+    }
+
+    .row-cards .card {
+      flex: 1;
+    }
+
+    .img-adjust {
+      max-width: 400px;
+      width: 100%;
+    }
+
+    .direction-flex {
+      display: flex;
+      flex-direction: row;
+      gap: 1rem;
+    }
+
+    @media (max-width: 992px) {
+      .row-cards {
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .two-column {
+        flex-direction: column;
+      }
+
+      .responsive-navbar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .bg-change {
+        background: lightblue;
+      }
+
+      .direction-flex {
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hide-on-small {
+        display: none;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.5rem;
+      }
+    }
+
+    /* 🎨 CSS Variable Themes */
+    .dark-theme {
+      --primary-color: #f1c40f;
+      background: #222;
+      color: white;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --primary-color: #f39c12;
+        --card-bg: #2c3e50;
+        --card-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+      }
+    }
+
+    .btn {
+      background: var(--btn-color);
+      padding: var(--btn-padding);
+      border-radius: var(--btn-radius);
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    .calc-box {
+      width: calc(100% - var(--gap));
+      background: #fafafa;
+      padding: 1rem;
+      margin: 1rem 0;
+    }
+
+    .card-grid {
+      display: grid;
+      gap: var(--card-gap);
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    .card-grid .card {
+      background: var(--card-bg);
+      box-shadow: var(--card-shadow);
+      padding: 1rem;
+    }
+
+    @media (max-width: 600px) {
+      :root {
+        --font-scale: 0.85;
+        --heading-font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="wrapper">
+
+    <h1>Day 19: Modern Web Design Principles</h1>
+
+    <section class="em-example">
+      <p>This paragraph scales relative to its container, ensuring readability on any screen.</p>
+    </section>
+
+    <div class="layout-container">This container adjusts based on screen width to maintain flow.</div>
+
+    <h2 class="vw-heading">Scaling Headline with Viewport Width</h2>
+
+    <div class="full-height">This section fills the entire screen height for immersive design.</div>
+
+    <div class="flex-center">
+      <p>Responsive flexbox layout centers the content both vertically and horizontally.</p>
+    </div>
+
+    <div class="card">Cards are used to group related UI content with padding and shadows.</div>
+
+    <img src="rabbit.jpg" class="responsive-img" alt="Rabbit in nature - responsive image" />
+
+    <p class="readable-text">Consistent line height enhances the readability of long paragraphs.</p>
+
+    <button class="responsive-btn">Learn More</button>
+
+    <div class="wrapper">This wrapper centers content and applies consistent side padding.</div>
+
+    <section class="two-column">
+      <div><strong>Visual Hierarchy</strong><br>Use font size, weight, and color to guide the user's eye.</div>
+      <div><strong>Whitespace</strong><br>Strategically placed space improves content legibility and focus.</div>
+    </section>
+
+    <section>
+      <p class="readable-text">As the screen size changes, the design adapts to preserve usability.</p>
+    </section>
+
+    <img src="peacock.jpg" class="img-adjust hide-on-small" alt="Peacock - hidden on small devices" />
+
+    <nav class="responsive-navbar">
+      <a href="#">Home</a>
+      <a href="#">Services</a>
+      <a href="#">Portfolio</a>
+      <a href="#">Contact</a>
+    </nav>
+
+    <section class="bg-change">The background color changes based on screen width.</section>
+
+    <section>
+      <img src="elephant.jpeg" class="img-adjust" alt="Elephant - responsive and resizable" />
+    </section>
+
+    <section class="row-cards">
+      <div class="card">📱 <strong>Mobile-First</strong><br>Start design for mobile and scale up.</div>
+      <div class="card">⚙️ <strong>Performance</strong><br>Optimize assets and reduce load time.</div>
+    </section>
+
+    <section class="wrapper" style="background: #eee; padding: 2rem;">
+      This container adjusts spacing responsively based on screen size.
+    </section>
+
+    <h1>Try resizing the window to see the heading size change below 480px</h1>
+
+    <section class="direction-flex">
+      <div><strong>Flex Item A</strong><br>Flexible layout for responsive content blocks.</div>
+      <div><strong>Flex Item B</strong><br>Adapts column direction on smaller devices.</div>
+    </section>
+
+    <section class="dark-theme">
+      <h2>Dark Theme Activated with Custom Variables</h2>
+      <p>Using CSS custom properties, we can theme layouts without rewriting styles.</p>
+    </section>
+
+    <h1>Using CSS Variables for Consistency</h1>
+
+    <button class="btn">Get Started</button>
+
+    <section>
+      <p style="padding: var(--section-spacing)">Spacing and layout are controlled by root-level variables.</p>
+    </section>
+
+    <div class="calc-box">This box width is calculated dynamically using CSS variables.</div>
+
+    <div class="card-grid">
+      <div class="card">🎨 <strong>CSS Variables</strong><br>Centralize control of color, spacing, and font size.</div>
+      <div class="card">🧭 <strong>Media Queries</strong><br>Create responsive breakpoints for multiple devices.</div>
+      <div class="card">📐 <strong>Grid Layout</strong><br>Powerful two-dimensional layouts for components.</div>
+    </div>
+
+  </div>
+</body>
+</html>
