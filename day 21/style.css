@@ -1,0 +1,141 @@
+:root {
+  --primary-color: #ff6347;
+  --accent: #fff8f0;
+  --text-color: #333;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--accent);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+/* Hero Section */
+.hero {
+  background-image: url('https://wallpapercave.com/wp/wp1874184.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color:red;
+}
+
+.hero-text h1 {
+  font-size: 3rem;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 1rem;
+}
+
+/* Menu */
+.menu-section {
+  padding: 2rem;
+}
+
+.menu-categories {
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+  margin-bottom: 1rem;
+  background: var(--primary-color);
+  color: white;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* Pricing Table */
+.pricing-section {
+  padding: 2rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 1rem;
+  text-align: left;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* Reservation Form */
+.reservation-section {
+  padding: 2rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 400px;
+  margin: auto;
+}
+
+input, button {
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+input:focus {
+  border-color: var(--primary-color);
+  outline: none;
+}
+
+button {
+  background-color: var(--primary-color);
+  color: white;
+  cursor: pointer;
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+/* Footer */
+footer {
+  background: var(--primary-color);
+  color: white;
+  text-align: center;
+  padding: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .menu-categories {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-text h1 {
+    font-size: 2rem;
+  }
+}
