@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Day 29 DOM Tasks</title>
+  <style>
+    .active { background-color: yellow; }
+    .show { display: block; }
+    .popup { display: block; }
+  </style>
+</head>
+<body>
+
+  <!-- Tasks 1-15 -->
+  <h1 id="title">Original Title</h1>
+  <h2 id="heading">Old Heading</h2>
+  <div id="box">Box</div>
+  <p id="message">Message</p>
+  <p id="mainText">Main Text</p>
+  <p id="hideMe">Hide Me</p>
+  <div id="container">Container</div>
+  <input id="username" type="text" />
+  <div id="card" class="card oldClass">Card</div>
+  <button id="toggleBtn">Toggle Class</button>
+  <p id="para1">This is para1</p>
+  <form id="myForm">
+    <div id="status">Status</div>
+    <button type="submit">Submit</button>
+  </form>
+  <p id="greeting">Hello User!</p>
+  <div id="targetBox" style="width:100px;height:100px;background:pink;">Target Box</div>
+  <button id="styleBtn">Update Style</button>
+
+  <!-- Tasks 16-30 -->
+  <div class="box">Box 1</div>
+  <div class="box">Box 2</div>
+  <div class="item">Item 1</div>
+  <div class="item">Item 2</div>
+  <div class="highlight">Highlight 1</div>
+  <div class="highlight">Highlight 2</div>
+  <div class="menu-item">Menu 1</div>
+  <div class="menu-item">Menu 2</div>
+  <div class="note">Note 1</div>
+  <div class="note">Note 2</div>
+  <div class="task">Task 1</div>
+  <div class="task">Task 2</div>
+  <div class="popup">Popup 1</div>
+  <div class="popup">Popup 2</div>
+  <div class="error">Error 1</div>
+  <div class="error">Error 2</div>
+  <button id="highlightBoxes">Highlight Boxes</button>
+  <div class="faq-item">FAQ 1</div>
+  <div class="faq-item">FAQ 2</div>
+  <div class="info">Info 1</div>
+  <div class="info">Info 2</div>
+  <div class="comment">Comment 1</div>
+  <div class="comment">Comment 2</div>
+  <div class="emoji-target">Emoji 1</div>
+  <div class="emoji-target">Emoji 2</div>
+  <div class="card">Card 1</div>
+  <div class="highlight">Highlight 3</div>
+  <button id="highlightAllBtn">Highlight All</button>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+  // ----------------- Tasks 1 to 15 -----------------
+  console.log(document.getElementById("title")); // 1
+
+  document.getElementById("heading").textContent = "Hello DOM!"; // 2
+
+  document.getElementById("box").style.backgroundColor = "blue"; // 3
+
+  document.getElementById("message").innerHTML = "<strong>Bold</strong>"; // 4
+
+  document.getElementById("mainText").style.fontSize = "24px"; // 5
+
+  document.getElementById("hideMe").style.display = "none"; // 6
+
+  document.getElementById("container").style.border = "2px solid black"; // 7
+
+  document.getElementById("username").value = "Guest"; // 8
+
+  document.getElementById("card").classList.add("newClass"); // 9
+
+  document.getElementById("card").classList.remove("oldClass"); // 10
+
+  document.getElementById("toggleBtn").addEventListener("click", function () { // 11
+    this.classList.toggle("active");
+  });
+
+  document.getElementById("toggleBtn").addEventListener("click", function () { // 12
+    document.getElementById("para1").style.color = "red";
+  });
+
+  document.getElementById("myForm").addEventListener("submit", function (e) { // 13
+    e.preventDefault();
+    document.getElementById("status").innerText = "Form Submitted!";
+  });
+
+  alert(document.getElementById("greeting").textContent); // 14
+
+  document.getElementById("styleBtn").addEventListener("click", function () { // 15
+    document.getElementById("targetBox").style.borderRadius = "50%";
+    document.getElementById("targetBox").style.backgroundColor = "green";
+  });
+
+  // ----------------- Tasks 16 to 30 -----------------
+  console.log(document.getElementsByClassName("box")); // 16
+
+  let items = document.getElementsByClassName("item"); // 17
+  for (let el of items) el.style.background = "lightgray";
+
+  let highlights = document.getElementsByClassName("highlight"); // 18
+  for (let el of highlights) el.style.color = "orange";
+
+  let menuItems = document.getElementsByClassName("menu-item"); // 19
+  for (let el of menuItems) el.classList.add("active");
+
+  let notes = document.getElementsByClassName("note"); // 20
+  for (let el of notes) el.style.fontStyle = "italic";
+
+  let tasks = document.getElementsByClassName("task"); // 21
+  for (let el of tasks) el.textContent += " - updated";
+
+  let popups = document.getElementsByClassName("popup"); // 22
+  for (let el of popups) el.style.display = "none";
+
+  let errors = document.getElementsByClassName("error"); // 23
+  for (let el of errors) el.textContent = "Correct it";
+
+  document.getElementById("highlightBoxes").addEventListener("click", function () { // 24
+    let boxes = document.getElementsByClassName("box");
+    for (let el of boxes) el.style.background = "yellow";
+  });
+
+  function toggleFAQs() { // 25
+    let faqs = document.getElementsByClassName("faq-item");
+    for (let el of faqs) el.classList.toggle("show");
+  }
+  toggleFAQs();
+
+  let infos = document.getElementsByClassName("info"); // 26
+  for (let el of infos) el.textContent = "Updated Info";
+
+  let comments = document.getElementsByClassName("comment"); // 27
+  console.log("Total comments:", comments.length);
+
+  let emojis = document.getElementsByClassName("emoji-target"); // 28
+  for (let el of emojis) el.textContent += " 😊";
+
+  document.getElementsByClassName("card")[0].style.background = "lightblue"; // 29
+
+  document.getElementById("highlightAllBtn").addEventListener("click", function () { // 30
+    let highlights = document.getElementsByClassName("highlight");
+    for (let el of highlights) el.style.background = "yellow";
+  });
+});
+
+  </script>
+</body>
+</html>
