@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attributes, Styles & Classes Tasks</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            transition: all 0.3s ease;
+        }
+        
+        body.dark-mode {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: #ecf0f1;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .dark-mode .container {
+            background: #34495e;
+            color: #ecf0f1;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 25px;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+            color: white;
+            border-radius: 10px;
+        }
+        
+        .section {
+            margin: 25px 0;
+            padding: 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            background: #f9f9f9;
+            transition: all 0.3s ease;
+        }
+        
+        .dark-mode .section {
+            background: #2c3e50;
+            border-color: #34495e;
+        }
+        
+        .task-item {
+            margin: 15px 0;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            border-left: 4px solid #4CAF50;
+            transition: all 0.3s ease;
+        }
+        
+        .dark-mode .task-item {
+            background: #34495e;
+            color: #ecf0f1;
+        }
+        
+        .attributes-task { border-left-color: #FF9800; }
+        .styles-task { border-left-color: #2196F3; }
+        .classes-task { border-left-color: #9C27B0; }
+        
+        /* Styling for various elements */
+        .test-link {
+            color: #2196F3;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .test-image {
+            max-width: 200px;
+            border-radius: 10px;
+            margin: 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        .test-div {
+            padding: 20px;
+            margin: 10px 0;
+            background: #e3f2fd;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .test-input {
+            padding: 10px;
+            margin: 5px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            width: 200px;
+        }
+        
+        .test-button {
+            background: #4CAF50;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+        
+        .test-button:hover {
+            background: #45a049;
+            transform: translateY(-2px);
+        }
+        
+        .active {
+            background: #FF9800 !important;
+            transform: scale(1.05);
+        }
+        
+        .error {
+            border-color: #f44336 !important;
+            background-color: #ffebee !important;
+        }
+        
+        .hidden {
+            display: none !important;
+        }
+        
+        .highlight {
+            background: linear-gradient(45deg, #FFE082, #FFCC02) !important;
+            transform: scale(1.02);
+            box-shadow: 0 5px 15px rgba(255, 193, 7, 0.4);
+        }
+        
+        .hovered {
+            background: #e8f5e9 !important;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .dark-mode .hovered {
+            background: #455a64 !important;
+        }
+        
+        .card {
+            background: white;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .dark-mode .card {
+            background: #455a64;
+            color: #ecf0f1;
+        }
+        
+        .list-item {
+            background: #e3f2fd;
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 5px;
+            border-left: 4px solid #2196F3;
+        }
+        
+        .dark-mode .list-item {
+            background: #37474f;
+            color: #ecf0f1;
+        }
+        
+        .modal {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        .dark-mode .modal {
+            background: #455a64;
+            color: #ecf0f1;
+        }
+        
+        .modal.open {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .modal.close {
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        .animated-box {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(45deg, #4CAF50, #45a049);
+            margin: 20px;
+            border-radius: 10px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .toggle-box {
+            width: 150px;
+            height: 100px;
+            background: #2196F3;
+            margin: 20px;
+            border-radius: 10px;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .btn {
+            background: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary {
+            background: #2196F3;
+        }
+        
+        .selected {
+            background: #FF9800 !important;
+            color: white !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Frontend Practice Tasks</h1>
+            <h2>Attributes, Styles & Classes</h2>
+            <button class="test-button" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+        </div>
+
+        <!-- Part 1: Changing Attributes -->
+        <div class="section">
+            
+            
+            <div class="task-item attributes-task">
+                <h4>Task 1 & 3: Get and Set href Attribute</h4>
+                <a href="https://example.com" id="test-link" class="test-link">Test Link (Click to see href change)</a>
+                <button class="test-button" onclick="logAndChangeHref()">Log & Change Href</button>
+            </div>
+            
+            <div class="task-item attributes-task">
+                <h4>Task 2 & 4: Get and Set Image src</h4>
+                <img src="nature.jpg" 
+                     id="test-image" class="test-image" alt="Test Image">
+                <button class="test-button" onclick="logAndChangeImageSrc()">Log & Change Image</button>
+            </div>
+            
+            <div class="task-item attributes-task">
+                <h4>Task 5: Set Custom data-id Attribute</h4>
+                <div id="custom-div" class="test-div">This div will get a custom data-id attribute</div>
+                <button class="test-button" onclick="setCustomAttribute()">Set data-id</button>
+            </div>
+            
+            <div class="task-item attributes-task">
+                <h4>Task 6: Add target="_blank" to All Links</h4>
+                <a href="https://google.com" class="test-link">Google Link</a>
+                <a href="https://github.com" class="test-link">GitHub Link</a>
+                <a href="https://stackoverflow.com" class="test-link">Stack Overflow Link</a>
+                <button class="test-button" onclick="addTargetBlank()">Add target="_blank"</button>
+            </div>
+            
+            <div class="task-item attributes-task">
+                <h4>Task 7: Check Required Attribute</h4>
+                <input type="text" id="required-input" class="test-input" required placeholder="Required field">
+                <button class="test-button" onclick="checkRequired()">Check if Required</button>
+            </div>
+            
+            <div class="task-item attributes-task">
+                <h4>Task 8: Remove alt Attribute</h4>
+                <img src="nature.jpg" 
+                     id="alt-image" class="test-image" alt="This alt will be removed">
+                <button class="test-button" onclick="removeAltAttribute()">Remove Alt</button>
+            </div>
+            
+            <div class="task-item attributes-task">
+                <h4>Task 9: Set Placeholder Text</h4>
+                <input type="text" id="placeholder-input" class="test-input">
+                <button class="test-button" onclick="setPlaceholder()">Set Placeholder</button>
+            </div>
+            
+            <div class="task-item attributes-task">
+                <h4>Task 10: Set ID on Dynamic Element</h4>
+                <div id="dynamic-container"></div>
+                <button class="test-button" onclick="createElementWithId()">Create Element with ID</button>
+            </div>
+        </div>
+
+        <!-- Part 2: Modifying Styles -->
+        <div class="section">
+        
+            
+            <div class="task-item styles-task">
+                <h4>Task 11: Change Background Color</h4>
+                <div id="bg-div" class="test-div">Background will change</div>
+                <button class="test-button" onclick="changeBackgroundColor()">Change Background</button>
+            </div>
+            
+            <div class="task-item styles-task">
+                <h4>Task 12: Set Font Size</h4>
+                <h3 id="font-heading">This heading will change size</h3>
+                <button class="test-button" onclick="changeFontSize()">Change Font Size</button>
+            </div>
+            
+            <div class="task-item styles-task">
+                <h4>Task 13 & 14: Hide and Show Elements</h4>
+                <section id="hide-section" class="test-div">This section can be hidden/shown</section>
+                <p id="hidden-paragraph" class="test-div" style="display: none;">This paragraph is initially hidden</p>
+                <button class="test-button" onclick="hideSection()">Hide Section</button>
+                <button class="test-button" onclick="showParagraph()">Show Paragraph</button>
+            </div>
+            
+            <div class="task-item styles-task">
+                <h4>Task 15: Change Border</h4>
+                <div id="border-div" class="test-div">Border will change</div>
+                <button class="test-button" onclick="changeBorder()">Change Border</button>
+            </div>
+            
+            <div class="task-item styles-task">
+                <h4>Task 16: Toggle Visibility</h4>
+                <div id="toggle-box" class="toggle-box">Click button to toggle visibility</div>
+                <button class="test-button" onclick="toggleVisibility()">Toggle Visibility</button>
+            </div>
+            
+            <div class="task-item styles-task">
+                <h4>Task 17: Change All Paragraph Colors</h4>
+                <p class="color-paragraph">Paragraph 1 - Color will change</p>
+                <p class="color-paragraph">Paragraph 2 - Color will change</p>
+                <p class="color-paragraph">Paragraph 3 - Color will change</p>
+                <button class="test-button" onclick="changeAllParagraphColors()">Change Colors</button>
+            </div>
+            
+            <div class="task-item styles-task">
+                <h4>Task 18: Increase Padding and Margin</h4>
+                <div id="padding-card" class="card">This card's padding and margin will increase</div>
+                <button class="test-button" onclick="increasePaddingMargin()">Increase Padding & Margin</button>
+            </div>
+            
+            <div class="task-item styles-task">
+                <h4>Task 19: Rotate Image</h4>
+                <img src="nature.jpg" 
+                     id="rotate-image" class="test-image">
+                <button class="test-button" onclick="rotateImage()">Rotate Image</button>
+            </div>
+            
+            <div class="task-item styles-task">
+                <h4>Task 20: Animate Box Movement</h4>
+                <div id="animated-box" class="animated-box"></div>
+                <button class="test-button" onclick="animateBox()">Move Box Right</button>
+                <button class="test-button" onclick="resetBox()">Reset Position</button>
+            </div>
+        </div>
+
+        <!-- Part 3: ClassList Methods -->
+        <div class="section">
+           
+            <div class="task-item classes-task">
+                <h4>Task 21: Add Active Class on Click</h4>
+                <button id="active-button" class="test-button" onclick="addActiveClass()">Click to Activate</button>
+            </div>
+            
+            <div class="task-item classes-task">
+                <h4>Task 22: Remove Error Class on Valid Input</h4>
+                <input type="email" id="email-input" class="test-input error" placeholder="Enter valid email">
+                <button class="test-button" onclick="validateEmail()">Validate Email</button>
+            </div>
+            
+            <div class="task-item classes-task">
+                <h4>Task 23: Toggle Dark Mode (Already implemented in header)</h4>
+                <p>Use the "Toggle Dark Mode" button in the header to see this in action!</p>
+            </div>
+            
+            <div class="task-item classes-task">
+                <h4>Task 24: Check if Element has Class</h4>
+                <div id="check-element" class="selected test-div">This element has 'selected' class</div>
+                <button class="test-button" onclick="checkForClass()">Check for 'selected' Class</button>
+            </div>
+            
+            <div class="task-item classes-task">
+                <h4>Task 25: Add Multiple Classes</h4>
+                <button id="multi-class-btn">Add Multiple Classes</button>
+                <button class="test-button" onclick="addMultipleClasses()">Add btn + btn-primary</button>
+            </div>
+            
+            <div class="task-item classes-task">
+                <h4>Task 26: Add Class to All List Items</h4>
+                <ul id="test-list">
+                    <li>List Item 1</li>
+                    <li>List Item 2</li>
+                    <li>List Item 3</li>
+                    <li>List Item 4</li>
+                </ul>
+                <button class="test-button" onclick="addListItemClass()">Add list-item Class</button>
+            </div>
+            
+            <div class="task-item classes-task">
+                <h4>Task 27: Highlight Card by Toggling Class</h4>
+                <div id="highlight-card" class="card" onclick="highlightCard()">Click this card to highlight</div>
+            </div>
+            
+            <div class="task-item classes-task">
+                <h4>Task 28: Hide/Show All Paragraphs</h4>
+                <p class="toggle-paragraph">Toggle Paragraph 1</p>
+                <p class="toggle-paragraph">Toggle Paragraph 2</p>
+                <p class="toggle-paragraph">Toggle Paragraph 3</p>
+                <button class="test-button" onclick="hideAllParagraphs()">Hide All</button>
+                <button class="test-button" onclick="showAllParagraphs()">Show All</button>
+            </div>
+            
+            <div class="task-item classes-task">
+                <h4>Task 29: Switch Between Two Classes on Modal</h4>
+                <button class="test-button" onclick="toggleModal()">Toggle Modal (open/close)</button>
+                <div id="modal" class="modal close">
+                    <h3>Modal Window</h3>
+                    <p>This modal switches between 'open' and 'close' classes</p>
+                </div>
+            </div>
+            
+            <div class="task-item classes-task">
+                <h4>Task 30: Hover Effects with Mouse Events</h4>
+                <div id="hover-element" class="card">Hover over this element</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        console.log(" Starting Attributes, Styles & Classes Tasks...\n");
+
+        console.log(" PART 1: Changing Attributes");
+
+        // Task 1 & 3: Get and set href attribute
+        function logAndChangeHref() {
+            const link = document.getElementById("test-link");
+            console.log("Task 1 - Original href:", link.getAttribute("href"));
+            link.setAttribute("href", "https://www.google.com");
+            console.log("Task 3 - New href:", link.getAttribute("href"));
+            link.textContent = "Updated Link to Google";
+        }
+
+        // Task 2 & 4: Get and set image src
+        function logAndChangeImageSrc() {
+            const image = document.getElementById("test-image");
+            console.log("Task 2 - Original src:", image.getAttribute("src"));
+            image.setAttribute("src", "nature.jpg");
+            console.log("Task 4 - New src:", image.getAttribute("src"));
+        }
+
+        // Task 5: Set custom data-id attribute
+        function setCustomAttribute() {
+            const div = document.getElementById("custom-div");
+            div.setAttribute("data-id", "custom-123");
+            console.log("Task 5 - Set data-id:", div.getAttribute("data-id"));
+            div.textContent = `Div now has data-id: ${div.getAttribute("data-id")}`;
+        }
+
+        // Task 6: Add target="_blank" to all anchor tags
+        function addTargetBlank() {
+            const links = document.querySelectorAll("a");
+            links.forEach(link => {
+                link.setAttribute("target", "_blank");
+            });
+            console.log("Task 6 - Added target='_blank' to all links ✓");
+        }
+
+        // Task 7: Check if input field is required
+        function checkRequired() {
+            const input = document.getElementById("required-input");
+            const isRequired = input.getAttribute("required") !== null;
+            console.log("Task 7 - Is input required?", isRequired);
+            alert(`Input field is ${isRequired ? 'required' : 'not required'}`);
+        }
+
+        // Task 8: Remove alt attribute from image
+        function removeAltAttribute() {
+            const image = document.getElementById("alt-image");
+            console.log("Task 8 - Original alt:", image.getAttribute("alt"));
+            image.removeAttribute("alt");
+            console.log("Task 8 - Alt after removal:", image.getAttribute("alt"));
+        }
+
+        // Task 9: Set placeholder text
+        function setPlaceholder() {
+            const input = document.getElementById("placeholder-input");
+            input.setAttribute("placeholder", "Enter your text here...");
+            console.log("Task 9 - Set placeholder text ✓");
+        }
+
+        // Task 10: Set ID on dynamically created element
+        function createElementWithId() {
+            const container = document.getElementById("dynamic-container");
+            const newElement = document.createElement("div");
+            newElement.setAttribute("id", "dynamic-element-123");
+            newElement.className = "test-div";
+            newElement.textContent = `New element with ID: ${newElement.getAttribute("id")}`;
+            container.appendChild(newElement);
+            console.log("Task 10 - Created element with ID:", newElement.getAttribute("id"));
+        }
+        console.log("\n Modifying Styles");
+
+        // Task 11: Change background color
+        function changeBackgroundColor() {
+            const div = document.getElementById("bg-div");
+            div.style.backgroundColor = "#FF6B6B";
+            div.textContent = "Background changed to red!";
+            console.log("Task 11 - Changed background color ✓");
+        }
+
+        // Task 12: Set font size
+        function changeFontSize() {
+            const heading = document.getElementById("font-heading");
+            heading.style.fontSize = "32px";
+            heading.textContent = "Font size changed to 32px!";
+            console.log("Task 12 - Changed font size to 32px ✓");
+        }
+
+        // Task 13: Hide section
+        function hideSection() {
+            const section = document.getElementById("hide-section");
+            section.style.display = "none";
+            console.log("Task 13 - Hidden section ✓");
+        }
+
+        // Task 14: Show hidden paragraph
+        function showParagraph() {
+            const paragraph = document.getElementById("hidden-paragraph");
+            paragraph.style.display = "block";
+            console.log("Task 14 - Showed hidden paragraph ✓");
+        }
+
+        // Task 15: Change border
+        function changeBorder() {
+            const div = document.getElementById("border-div");
+            div.style.border = "2px solid red";
+            div.textContent = "Border changed to 2px solid red!";
+            console.log("Task 15 - Changed border ✓");
+        }
+
+        // Task 16: Toggle visibility function
+        let isVisible = true;
+        function toggleVisibility() {
+            const box = document.getElementById("toggle-box");
+            if (isVisible) {
+                box.style.display = "none";
+                isVisible = false;
+            } else {
+                box.style.display = "flex";
+                isVisible = true;
+            }
+            console.log("Task 16 - Toggled visibility:", isVisible);
+        }
+
+        // Task 17: Change color of all paragraphs
+        function changeAllParagraphColors() {
+            const paragraphs = document.querySelectorAll(".color-paragraph");
+            paragraphs.forEach(p => {
+                p.style.color = "blue";
+            });
+            console.log("Task 17 - Changed all paragraph colors to blue ✓");
+        }
+
+        // Task 18: Increase padding and margin
+        function increasePaddingMargin() {
+            const card = document.getElementById("padding-card");
+            card.style.padding = "40px";
+            card.style.margin = "30px";
+            card.textContent = "Padding and margin increased!";
+            console.log("Task 18 - Increased padding and margin ✓");
+        }
+
+        // Task 19: Rotate image
+        let rotationDegree = 0;
+        function rotateImage() {
+            const image = document.getElementById("rotate-image");
+            rotationDegree += 10;
+            image.style.transform = `rotate(${rotationDegree}deg)`;
+            console.log(`Task 19 - Rotated image by ${rotationDegree} degrees`);
+        }
+
+        // Task 20: Animate box movement
+        let boxPosition = 0;
+        function animateBox() {
+            const box = document.getElementById("animated-box");
+            box.style.position = "relative";
+            boxPosition += 50;
+            box.style.left = boxPosition + "px";
+            console.log(`Task 20 - Moved box to ${boxPosition}px`);
+        }
+
+        function resetBox() {
+            const box = document.getElementById("animated-box");
+            boxPosition = 0;
+            box.style.left = "0px";
+            console.log("Task 20 - Reset box position");
+        }
+
+    
+        console.log("\nClassList Methods");
+
+        // Task 21: Add active class on click
+        function addActiveClass() {
+            const button = document.getElementById("active-button");
+            button.classList.add("active");
+            button.textContent = "Activated!";
+            console.log("Task 21 - Added 'active' class ✓");
+        }
+
+        // Task 22: Remove error class on valid input
+        function validateEmail() {
+            const input = document.getElementById("email-input");
+            const email = input.value;
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            
+            if (emailRegex.test(email)) {
+                input.classList.remove("error");
+                console.log("Task 22 - Removed 'error' class (valid email) ✓");
+            } else {
+                alert("Please enter a valid email address");
+            }
+        }
+
+        // Task 23: Toggle dark mode (already implemented)
+        function toggleDarkMode() {
+            document.body.classList.toggle("dark-mode");
+            console.log("Task 23 - Toggled dark mode ✓");
+        }
+
+        // Task 24: Check if element has class
+        function checkForClass() {
+            const element = document.getElementById("check-element");
+            const hasSelected = element.classList.contains("selected");
+            console.log("Task 24 - Has 'selected' class:", hasSelected);
+            alert(`Element ${hasSelected ? 'has' : 'does not have'} the 'selected' class`);
+        }
+
+        // Task 25: Add multiple classes at once
+        function addMultipleClasses() {
+            const button = document.getElementById("multi-class-btn");
+            button.classList.add("btn", "btn-primary");
+            button.textContent = "Multiple classes added!";
+            console.log("Task 25 - Added multiple classes: btn, btn-primary ✓");
+        }
+
+        // Task 26: Add class to all list items
+        function addListItemClass() {
+            const listItems = document.querySelectorAll("#test-list li");
+            listItems.forEach(li => {
+                li.classList.add("list-item");
+            });
+            console.log("Task 26 - Added 'list-item' class to all list items ✓");
+        }
+
+        // Task 27: Highlight card by toggling class
+        function highlightCard() {
+            const card = document.getElementById("highlight-card");
+            card.classList.toggle("highlight");
+            console.log("Task 27 - Toggled 'highlight' class ✓");
+        }
+
+        // Task 28: Hide/show all paragraphs
+        function hideAllParagraphs() {
+            const paragraphs = document.querySelectorAll(".toggle-paragraph");
+            paragraphs.forEach(p => {
+                p.classList.add("hidden");
+            });
+            console.log("Task 28 - Added 'hidden' class to all paragraphs ✓");
+        }
+
+        function showAllParagraphs() {
+            const paragraphs = document.querySelectorAll(".toggle-paragraph");
+            paragraphs.forEach(p => {
+                p.classList.remove("hidden");
+            });
+            console.log("Task 28 - Removed 'hidden' class from all paragraphs ✓");
+        }
+
+        // Task 29: Switch between open and close classes on modal
+        function toggleModal() {
+            const modal = document.getElementById("modal");
+            if (modal.classList.contains("open")) {
+                modal.classList.remove("open");
+                modal.classList.add("close");
+                console.log("Task 29 - Switched to 'close' class");
+            } else {
+                modal.classList.remove("close");
+                modal.classList.add("open");
+                console.log("Task 29 - Switched to 'open' class");
+            }
+        }
+
+        // Task 30: Hover effects with mouse events
+        const hoverElement = document.getElementById("hover-element");
+        hoverElement.addEventListener("mouseover", function() {
+            this.classList.add("hovered");
+            this.textContent = "Hovered! Mouse is over the element";
+            console.log("Task 30 - Added 'hovered' class on mouseover");
+        });
+
+        hoverElement.addEventListener("mouseout", function() {
+            this.classList.remove("hovered");
+            this.textContent = "Hover over this element";
+            console.log("Task 30 - Removed 'hovered' class on mouseout");
+        });
+
+        console.log("\n🎉 All 30 tasks completed successfully!");
+        console.log("🔍 Check the console logs and interact with elements to see all functionality!");
+        console.log("✨ Try the dark mode toggle, hover effects, and all interactive buttons!");
+
+        // Initialize some elements on page load
+        document.addEventListener("DOMContentLoaded", function() {
+            console.log("📱 Page loaded - All interactive elements ready!");
+        });
+    </script>
+</body>
+</html>
