@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frontend Internship - Day 31</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 25px;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+            color: white;
+            border-radius: 10px;
+        }
+        
+        .section {
+            margin: 25px 0;
+            padding: 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            background: #f9f9f9;
+        }
+        
+        .task-section {
+            margin: 15px 0;
+            padding: 15px;
+            border-left: 4px solid #4CAF50;
+            background: white;
+            border-radius: 5px;
+        }
+        
+        .innerHTML-section { border-left-color: #FF9800; }
+        .textContent-section { border-left-color: #2196F3; }
+        .innerText-section { border-left-color: #9C27B0; }
+        
+        #info, #description, #image-container, #list-container, #main, 
+        #card-container, #table-container, #clear-container, #button-container, 
+        #span-container {
+            margin: 10px 0;
+            padding: 15px;
+            border: 1px dashed #ccc;
+            border-radius: 5px;
+            min-height: 40px;
+            background: #fff;
+        }
+        
+        .score {
+            font-weight: bold;
+            color: #4CAF50;
+            background: #e8f5e9;
+            padding: 5px 10px;
+            border-radius: 20px;
+            display: inline-block;
+        }
+        
+        .note {
+            background: #fff3cd;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            border-left: 4px solid #ffc107;
+        }
+        
+        .error-msg {
+            color: red;
+            background: #ffebee;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            border-left: 4px solid #f44336;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        input[type="text"] {
+            padding: 10px;
+            margin: 5px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            width: 200px;
+        }
+        
+        button {
+            background: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+            transition: background 0.3s;
+        }
+        
+        button:hover {
+            background: #45a049;
+        }
+        
+        .card {
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 10px;
+            background: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 10px 0;
+        }
+        
+        td, th {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #f2f2f2;
+        }
+        
+        .time-display {
+            font-family: 'Courier New', monospace;
+            font-size: 18px;
+            background: #333;
+            color: #0f0;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+        }
+        
+        .comparison-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 15px 0;
+        }
+        
+        .comparison-item {
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+        
+            <h2>innerHTML, textContent & innerText Methods Ltd.</h2>
+            
+        </div>
+
+        <!-- Part 1: innerHTML Tasks -->
+        <div class="section">
+            <h2 style="color: #FF9800;">Part 1: innerHTML Tasks (1-10)</h2>
+            
+            <div class="task-section innerHTML-section">
+                <h4>Welcome Message</h4>
+                <div id="info">Original content</div>
+            </div>
+            
+            <div class="task-section innerHTML-section">
+                <h4> Description Paragraph</h4>
+                <p id="description">Original description</p>
+            </div>
+            
+            <div class="task-section innerHTML-section">
+                <h4> Image Container</h4>
+                <div id="image-container">Image will appear here</div>
+            </div>
+            
+            <div class="task-section innerHTML-section">
+                <h4>List Container</h4>
+                <div id="list-container">List will appear here</div>
+            </div>
+            
+            <div class="task-section innerHTML-section">
+                <h4> Main Container (Append)</h4>
+                <div id="main">
+                    <p>Existing content</p>
+                </div>
+            </div>
+            
+            <div class="task-section innerHTML-section">
+                <h4> Dynamic Card</h4>
+                <div id="card-container">Card will appear here</div>
+            </div>
+            
+            <div class="task-section innerHTML-section">
+                <h4> Table Display</h4>
+                <div id="table-container">Table will appear here</div>
+            </div>
+            
+            <div class="task-section innerHTML-section">
+                <h4> Clear Container</h4>
+                <div id="clear-container">This content will be cleared</div>
+            </div>
+            
+            <div class="task-section innerHTML-section">
+                <h4> Button Section</h4>
+                <div id="button-container">Button will appear here</div>
+            </div>
+            
+            <div class="task-section innerHTML-section">
+                <h4> Styled Span</h4>
+                <span id="span-container">Original span text</span>
+            </div>
+        </div>
+
+        <!-- Part 2: textContent Tasks -->
+        <div class="section">
+            <h2 style="color: #2196F3;">Part 2: textContent Tasks (11-20)</h2>
+            
+            <div class="task-section textContent-section">
+                <h4> Log Paragraph Content</h4>
+                <p id="log-paragraph">This paragraph content will be logged to console</p>
+            </div>
+            
+            <div class="task-section textContent-section">
+                <h4> Heading Update</h4>
+                <h3 id="user-heading">Original Heading</h3>
+            </div>
+            
+            <div class="task-section textContent-section">
+                <h4> Score Display</h4>
+                <span class="score" id="score-display">0</span>
+                <button onclick="updateScore()">Update Score</button>
+            </div>
+            
+            <div class="task-section textContent-section">
+                <h4> Character Counter</h4>
+                <input type="text" id="char-input" placeholder="Type something...">
+                <div id="char-counter">0 characters</div>
+            </div>
+            
+            <div class="task-section textContent-section">
+                <h4> Remove HTML Tags</h4>
+                <div id="html-container">
+                    <h3>This has <strong>HTML</strong> <em>tags</em></h3>
+                    <p>And <a href="#">links</a> too!</p>
+                </div>
+                <button onclick="removeHtmlTags()">Remove HTML Tags</button>
+            </div>
+            
+            <div class="task-section textContent-section">
+                <h4>Show Raw HTML</h4>
+                <div id="raw-html-display">HTML code will appear here</div>
+            </div>
+            
+            <div class="task-section textContent-section">
+                <h4> Note Elements</h4>
+                <div class="note">First note content</div>
+                <div class="note">Second note content</div>
+                <div class="note">Third note content</div>
+            </div>
+            
+            <div class="task-section textContent-section">
+                <h4> Dynamic Greeting</h4>
+                <div id="greeting-display">Greeting will appear here</div>
+            </div>
+            
+            <div class="task-section textContent-section">
+                <h4> Object Display</h4>
+                <div id="object-display">Object data will appear here</div>
+            </div>
+            
+            <div class="task-section textContent-section">
+                <h4> Multiple Child Elements</h4>
+                <div id="multi-child">
+                    <span>Child 1</span>
+                    <p>Child 2</p>
+                    <div>Child 3</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Part 3: innerText Tasks -->
+        <div class="section">
+            <h2 style="color: #9C27B0;">🟦 Part 3: innerText Tasks (21-30)</h2>
+            
+            <div class="task-section innerText-section">
+                <h4> Hidden Spans Comparison</h4>
+                <h3 id="hidden-heading">
+                    Visible Text
+                    <span class="hidden">Hidden Text</span>
+                    More Visible
+                </h3>
+                <div class="comparison-box">
+                    <div class="comparison-item">
+                        <strong>innerText:</strong>
+                        <div id="innertext-result"></div>
+                    </div>
+                    <div class="comparison-item">
+                        <strong>textContent:</strong>
+                        <div id="textcontent-result"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="task-section innerText-section">
+                <h4> Button Text Change</h4>
+                <button id="change-btn">Original Button</button>
+            </div>
+            
+            <div class="task-section innerText-section">
+                <h4> Line Breaks</h4>
+                <div id="line-breaks">Single line text</div>
+            </div>
+            
+            <div class="task-section innerText-section">
+                <h4> User Input Display</h4>
+                <input type="text" id="user-input" placeholder="Enter text...">
+                <button onclick="displayUserInput()">Display Text</button>
+                <div id="input-display">User input will appear here</div>
+            </div>
+            
+            <div class="task-section innerText-section">
+                <h4> Timestamp Display</h4>
+                <div id="timestamp-display">Timestamp will appear here</div>
+            </div>
+            
+            <div class="task-section innerText-section">
+                <h4> Live Clock</h4>
+                <div id="live-clock" class="time-display">00:00:00</div>
+            </div>
+            
+            <div class="task-section innerText-section">
+                <h4> Loading State</h4>
+                <h2 id="loading-heading">Original Content</h2>
+                <button onclick="simulateLoading()">Simulate Loading</button>
+            </div>
+            
+            <div class="task-section innerText-section">
+                <h4> Error Messages</h4>
+                <div class="error-msg">Original error message</div>
+                <div class="error-msg">Another error message</div>
+                <button onclick="updateErrorMessages()">Update Errors</button>
+            </div>
+            
+            <div class="task-section innerText-section">
+                <h4> innerHTML vs innerText Comparison</h4>
+                <div id="comparison-element">
+                    <strong>Bold Text</strong> and <em>italic text</em>
+                </div>
+                <div class="comparison-box">
+                    <div class="comparison-item">
+                        <strong>innerHTML:</strong>
+                        <div id="innerHTML-log"></div>
+                    </div>
+                    <div class="comparison-item">
+                        <strong>innerText:</strong>
+                        <div id="innerText-log"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="task-section innerText-section">
+                <h4> Multiple Lines Append</h4>
+                <div id="multiple-lines">Original text</div>
+                <button onclick="appendMultipleLines()">Append Lines</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        console.log(" Starting Frontend Internship Day 31 Tasks...\n");
+
+        // Global variables for some tasks
+        let currentScore = 0;
+        console.log("PART 1: innerHTML Tasks");
+
+        // Task 1: Set innerHTML with HTML content
+        document.getElementById("info").innerHTML = "Welcome <strong>Guest</strong>";
+        console.log("Task 1 - Set welcome message with innerHTML ✓");
+
+        // Task 2: Replace paragraph content with full HTML
+        document.getElementById("description").innerHTML = 
+            "<strong>Updated Description:</strong> This is a <em>complete</em> paragraph with <span style='color: blue;'>styled text</span> and <a href='#'>a link</a>.";
+        console.log("Task 2 - Replaced paragraph content with HTML ✓");
+
+        // Task 3: Add image using innerHTML
+        document.getElementById("image-container").innerHTML = 
+            '<img src="rose.jpeg" alt="Dynamic Image" style="border-radius: 10px; max-width: 100%;">';
+        console.log("Task 3 - Added image using innerHTML ✓");
+
+        // Task 4: Insert list using innerHTML
+        document.getElementById("list-container").innerHTML = `
+            <ul style="list-style-type: none; padding: 0;">
+                <li style="background: #e3f2fd; margin: 5px 0; padding: 10px; border-radius: 5px;">📌 Item 1</li>
+                <li style="background: #e8f5e9; margin: 5px 0; padding: 10px; border-radius: 5px;">📌 Item 2</li>
+                <li style="background: #fff3e0; margin: 5px 0; padding: 10px; border-radius: 5px;">📌 Item 3</li>
+            </ul>
+        `;
+        console.log("Task 4 - Inserted list using innerHTML ✓");
+
+        // Task 5: Append paragraph using +=
+        document.getElementById("main").innerHTML += "<p><strong>Appended content:</strong> This paragraph was added using innerHTML +=</p>";
+        console.log("Task 5 - Appended paragraph using innerHTML += ✓");
+
+        // Task 6: Create dynamic card layout
+        document.getElementById("card-container").innerHTML = `
+            <div class="card">
+                <h3 style="color: #2196F3; margin-top: 0;">Dynamic Card Title</h3>
+                <p>This is a dynamically created card with content and styling.</p>
+                <button onclick="alert('Card button clicked!')" style="background: #FF9800;">Card Action</button>
+            </div>
+        `;
+        console.log("Task 6 - Created dynamic card layout ✓");
+
+        // Task 7: Display table with innerHTML
+        document.getElementById("table-container").innerHTML = `
+            <table>
+                <thead>
+                    <tr>
+                        <th>Column 1</th>
+                        <th>Column 2</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Row 1, Cell 1</td>
+                        <td>Row 1, Cell 2</td>
+                    </tr>
+                    <tr>
+                        <td>Row 2, Cell 1</td>
+                        <td>Row 2, Cell 2</td>
+                    </tr>
+                </tbody>
+            </table>
+        `;
+        console.log("Task 7 - Created table using innerHTML ✓");
+
+        // Task 8: Clear container content
+        document.getElementById("clear-container").innerHTML = "";
+        console.log("Task 8 - Cleared container content ✓");
+
+        // Task 9: Add button using innerHTML
+        document.getElementById("button-container").innerHTML = 
+            '<button onclick="alert(\'Button clicked from innerHTML!\')" style="background: #9C27B0;">Click Me!</button>';
+        console.log("Task 9 - Added button using innerHTML ✓");
+
+        // Task 10: Replace span with styled HTML
+        document.getElementById("span-container").innerHTML = 
+            '<span style="background: linear-gradient(45deg, #FF6B6B, #4ECDC4); color: white; padding: 10px 20px; border-radius: 25px; font-weight: bold;">✨ Styled HTML Text ✨</span>';
+        console.log("Task 10 - Replaced span with styled HTML ✓");
+
+
+        console.log("\nPART 2: textContent Tasks");
+
+        // Task 11: Log paragraph textContent
+        const logParagraph = document.getElementById("log-paragraph");
+        console.log("Task 11 - Paragraph textContent:", logParagraph.textContent);
+
+        // Task 12: Set heading textContent
+        document.getElementById("user-heading").textContent = "Hello, User!";
+        console.log("Task 12 - Set heading textContent ✓");
+
+        // Task 13: Update score (function defined later)
+        function updateScore() {
+            currentScore += 10;
+            document.getElementById("score-display").textContent = currentScore;
+            console.log(`Task 13 - Score updated to: ${currentScore}`);
+        }
+
+        // Task 14: Character counter
+        const charInput = document.getElementById("char-input");
+        const charCounter = document.getElementById("char-counter");
+        charInput.addEventListener("input", function() {
+            const count = this.value.length;
+            charCounter.textContent = `${count} characters`;
+        });
+        console.log("Task 14 - Character counter setup ✓");
+
+        // Task 15: Remove HTML tags function
+        function removeHtmlTags() {
+            const htmlContainer = document.getElementById("html-container");
+            const textOnly = htmlContainer.textContent;
+            htmlContainer.textContent = textOnly;
+            console.log("Task 15 - Removed HTML tags using textContent ✓");
+        }
+
+        // Task 16: Show raw HTML code
+        document.getElementById("raw-html-display").textContent = 
+            '<h1>This is HTML code</h1><p>It shows as <strong>text</strong> not rendered HTML</p>';
+        console.log("Task 16 - Displayed raw HTML code using textContent ✓");
+
+        // Task 17: Prepend "NOTE: " to all .note elements
+        document.querySelectorAll(".note").forEach(note => {
+            note.textContent = "NOTE: " + note.textContent;
+        });
+        console.log("Task 17 - Prepended 'NOTE: ' to all note elements ✓");
+
+        // Task 18: Dynamic greeting
+        const currentHour = new Date().getHours();
+        let greeting = "";
+        if (currentHour < 12) greeting = "Good morning";
+        else if (currentHour < 18) greeting = "Good afternoon";
+        else greeting = "Good evening";
+
+        document.getElementById("greeting-display").textContent = `${greeting}, John!`;
+        console.log("Task 18 - Set dynamic greeting ✓");
+
+        // Task 19: Convert object to string
+        const sampleObject = {
+            name: "John Doe",
+            age: 25,
+            city: "New York",
+            skills: ["JavaScript", "HTML", "CSS"]
+        };
+        document.getElementById("object-display").textContent = JSON.stringify(sampleObject, null, 2);
+        console.log("Task 19 - Displayed object as string ✓");
+
+        // Task 20: Read textContent of multiple child elements
+        const multiChild = document.getElementById("multi-child");
+        console.log("Task 20 - Multi-child textContent:", multiChild.textContent);
+
+        
+        console.log("\n PART 3: innerText Tasks");
+
+        // Task 21: Compare innerText vs textContent with hidden elements
+        const hiddenHeading = document.getElementById("hidden-heading");
+        document.getElementById("innertext-result").textContent = hiddenHeading.innerText;
+        document.getElementById("textcontent-result").textContent = hiddenHeading.textContent;
+        console.log("Task 21 - innerText:", hiddenHeading.innerText);
+        console.log("Task 21 - textContent:", hiddenHeading.textContent);
+
+        // Task 22: Change button text using innerText
+        document.getElementById("change-btn").innerText = "Updated Button Text";
+        console.log("Task 22 - Changed button text using innerText ✓");
+
+        // Task 23: Add line breaks using \n
+        document.getElementById("line-breaks").innerText = "First line\nSecond line\nThird line\nFourth line";
+        console.log("Task 23 - Added line breaks using innerText ✓");
+
+        // Task 24: Display user input function
+        function displayUserInput() {
+            const userInput = document.getElementById("user-input").value;
+            document.getElementById("input-display").innerText = userInput;
+            console.log("Task 24 - Displayed user input:", userInput);
+        }
+
+        // Task 25: Display timestamp
+        const now = new Date();
+        const timeString = now.toLocaleTimeString();
+        document.getElementById("timestamp-display").innerText = `Updated at ${timeString}`;
+        console.log("Task 25 - Set timestamp ✓");
+
+        // Task 26: Live clock function
+        function updateClock() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString();
+            document.getElementById("live-clock").innerText = timeString;
+        }
+        
+        // Update clock immediately and then every second
+        updateClock();
+        setInterval(updateClock, 1000);
+        console.log("Task 26 - Live clock started ✓");
+
+        // Task 27: Loading simulation function
+        function simulateLoading() {
+            const loadingHeading = document.getElementById("loading-heading");
+            const originalContent = loadingHeading.innerText;
+            
+            loadingHeading.innerText = "Loading...";
+            console.log("Task 27 - Set loading state");
+            
+            setTimeout(() => {
+                loadingHeading.innerText = "Content Loaded Successfully!";
+                console.log("Task 27 - Loading completed ✓");
+            }, 2000);
+        }
+
+        // Task 28: Update error messages function
+        function updateErrorMessages() {
+            document.querySelectorAll(".error-msg").forEach((error, index) => {
+                error.innerText = `Updated Error ${index + 1}: Issue has been resolved`;
+            });
+            console.log("Task 28 - Updated all error messages ✓");
+        }
+
+        // Task 29: Compare innerHTML vs innerText
+        const comparisonElement = document.getElementById("comparison-element");
+        document.getElementById("innerHTML-log").textContent = comparisonElement.innerHTML;
+        document.getElementById("innerText-log").textContent = comparisonElement.innerText;
+        console.log("Task 29 - innerHTML:", comparisonElement.innerHTML);
+        console.log("Task 29 - innerText:", comparisonElement.innerText);
+
+        // Task 30: Append multiple lines function
+        function appendMultipleLines() {
+            const multipleLines = document.getElementById("multiple-lines");
+            multipleLines.innerText += "\nSecond line added";
+            multipleLines.innerText += "\nThird line added";
+            multipleLines.innerText += "\nFourth line added";
+            console.log("Task 30 - Appended multiple lines ✓");
+        }
+
+        console.log("\n All 30 tasks completed successfully!");
+        console.log("Check the page to see all the changes and interactions!");
+        console.log(" Open browser console to see detailed logs for each task!");
+    </script>
+</body>
+</html>
