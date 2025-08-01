@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Manipulation & Event Handling</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .section {
+            margin: 30px 0;
+            padding: 20px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            background: #f9f9f9;
+        }
+        .example {
+            margin: 15px 0;
+            padding: 15px;
+            background: white;
+            border-left: 4px solid #007bff;
+            border-radius: 4px;
+        }
+        button {
+            padding: 8px 16px;
+            margin: 5px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover { background: #0056b3; }
+        input, select, textarea {
+            padding: 8px;
+            margin: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .card {
+            padding: 15px;
+            margin: 10px;
+            background: #e7f3ff;
+            border: 1px solid #b3d9ff;
+            border-radius: 6px;
+        }
+        .box {
+            width: 100px;
+            height: 100px;
+            background: #ff6b6b;
+            margin: 10px;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 10px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th { background: #f2f2f2; }
+        .output {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <h1>🚀 DOM Manipulation & Event Handling Practice</h1>
+    
+    <!-- PART 1: CREATING & REMOVING ELEMENTS -->
+    <div class="section">
+        <h2>🔧 Creating & Removing Elements</h2>
+        
+        <!-- Create and log paragraph element -->
+        <div class="example">
+            <h3>Create and log a paragraph element</h3>
+            <button onclick="createParagraph()">Create & Log Paragraph</button>
+            <div class="output" id="paragraphOutput">Check console for output</div>
+        </div>
+        
+        <!-- Create div with "Hello DOM" -->
+        <div class="example">
+            <h3>Create div with "Hello DOM" and append to body</h3>
+            <button onclick="createHelloDiv()">Add Hello DOM Div</button>
+        </div>
+        
+        <!-- Add li to existing ul -->
+        <div class="example">
+            <h3>Add li to existing ul</h3>
+            <ul id="todoList">
+                <li>Existing item 1</li>
+                <li>Existing item 2</li>
+            </ul>
+            <button onclick="addTodoItem()">Add New Todo Item</button>
+        </div>
+        
+        <!-- Create img with setAttribute -->
+        <div class="example">
+            <h3>Create img with setAttribute and append</h3>
+            <div id="imageContainer"></div>
+            <button onclick="addImage()">Add Image</button>
+        </div>
+        
+        <!-- Add button with "Click Me" text -->
+        <div class="example">
+            <h3>Add button with "Click Me" text</h3>
+            <div id="buttonContainer"></div>
+            <button onclick="addClickButton()">Add Click Me Button</button>
+        </div>
+        
+        <!-- Add multiple li elements using loop -->
+        <div class="example">
+            <h3>Add multiple li elements using loop</h3>
+            <ul id="loopList"></ul>
+            <button onclick="addMultipleItems()">Add 5 Items with Loop</button>
+        </div>
+        
+        <!-- Insert h3 using append() -->
+        <div class="example">
+            <h3>Insert h3 using append()</h3>
+            <section id="mySection">
+                <p>This is a section with existing content.</p>
+            </section>
+            <button onclick="insertHeading()">Insert H3 with append()</button>
+        </div>
+        
+        <!-- Add paragraph to all .card elements -->
+        <div class="example">
+            <h3>Add paragraph to all .card elements</h3>
+            <div class="card">Card 1 content</div>
+            <div class="card">Card 2 content</div>
+            <div class="card">Card 3 content</div>
+            <button onclick="addParagraphsToCards()">Add Paragraphs to Cards</button>
+        </div>
+        
+        <!-- Add option to select dropdown -->
+        <div class="example">
+            <h3>Add option to select dropdown</h3>
+            <select id="mySelect">
+                <option value="option1">Option 1</option>
+                <option value="option2">Option 2</option>
+            </select>
+            <button onclick="addOption()">Add New Option</button>
+        </div>
+        
+        <!-- Build table row with 3 cells -->
+        <div class="example">
+            <h3>Build table row with 3 cells</h3>
+            <table id="myTable">
+                <thead>
+                    <tr><th>Name</th><th>Age</th><th>City</th></tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+            <button onclick="addTableRow()">Add Table Row</button>
+        </div>
+        
+        <!-- Remove element using .remove() -->
+        <div class="example">
+            <h3>Remove element using .remove()</h3>
+            <p id="removeMe">This paragraph will be removed</p>
+            <button onclick="removeElement()">Remove Paragraph</button>
+        </div>
+        
+        <!-- Remove child using removeChild() -->
+        <div class="example">
+            <h3>Remove child using removeChild()</h3>
+            <div id="parentDiv">
+                <p id="childToRemove">This child will be removed</p>
+                <p>This child will stay</p>
+            </div>
+            <button onclick="removeChild()">Remove Child</button>
+        </div>
+        
+        <!-- Delete card on button click -->
+        <div class="example">
+            <h3>Delete card on button click</h3>
+            <div class="card" id="deletableCard">
+                This card can be deleted
+                <button onclick="deleteCard()">Delete This Card</button>
+            </div>
+        </div>
+        
+        <!-- Remove li elements containing "done" -->
+        <div class="example">
+            <h3>Remove li elements containing "done"</h3>
+            <ul id="statusList">
+                <li>Work on project - pending</li>
+                <li>Buy groceries - done</li>
+                <li>Call client - in progress</li>
+                <li>Submit report - done</li>
+                <li>Schedule meeting - pending</li>
+            </ul>
+            <button onclick="removeDoneItems()">Remove Done Items</button>
+        </div>
+        
+        <!-- Reset button to clear container -->
+        <div class="example">
+            <h3>Reset button to clear container</h3>
+            <div id="clearContainer">
+                <p>Content 1</p>
+                <p>Content 2</p>
+                <div>Content 3</div>
+            </div>
+            <button onclick="clearContainer()">Clear Container</button>
+        </div>
+    </div>
+    
+    <!-- PART 2: EVENT HANDLING -->
+    <div class="section">
+        <h2>🧷 Event Handling</h2>
+        
+        <!-- Click event listener -->
+        <div class="example">
+            <h3>Click event listener</h3>
+            <button id="clickButton">Click Me for Console Log</button>
+        </div>
+        
+        <!-- Mouseover event to change background -->
+        <div class="example">
+            <h3>Mouseover event to change background</h3>
+            <div class="box" id="hoverBox">Hover over me</div>
+        </div>
+        
+        <!-- Input event for keystroke logging -->
+        <div class="example">
+            <h3>Input event for keystroke logging</h3>
+            <input type="text" id="textInput" placeholder="Type here...">
+            <div class="output" id="keystrokeOutput">Keystrokes will appear here</div>
+        </div>
+        
+        <!-- Function attached to button click -->
+        <div class="example">
+            <h3>Function attached to button click</h3>
+            <button id="sayHiButton">Say Hi</button>
+        </div>
+        
+        <!-- Remove event listener after first click -->
+        <div class="example">
+            <h3>Remove event listener after first click</h3>
+            <button id="oneTimeButton">Click Me Once Only</button>
+        </div>
+        
+        <!-- Multiple buttons with one handler -->
+        <div class="example">
+            <h3>Multiple buttons with one handler</h3>
+            <div id="multiButtonContainer">
+                <button>Button A</button>
+                <button>Button B</button>
+                <button>Button C</button>
+            </div>
+            <div class="output" id="buttonOutput">Click any button above</div>
+        </div>
+        
+        <!-- Event.target logging -->
+        <div class="example">
+            <h3>Event.target logging</h3>
+            <div id="targetContainer">
+                <button>First Button</button>
+                <button>Second Button</button>
+                <span>Click me too!</span>
+            </div>
+            <div class="output" id="targetOutput">Click elements above to see event.target</div>
+        </div>
+        
+        <!-- Event.currentTarget vs Event.target -->
+        <div class="example">
+            <h3>Event.currentTarget vs Event.target</h3>
+            <div id="nestedContainer" style="padding: 20px; background: #ffe6e6;">
+                Outer Div (currentTarget)
+                <button style="margin: 10px;">Inner Button (target)</button>
+            </div>
+            <div class="output" id="nestedOutput">Click button or div to see the difference</div>
+        </div>
+        
+        <!-- Prevent form submission -->
+        <div class="example">
+            <h3>Prevent form submission</h3>
+            <form id="testForm">
+                <input type="text" placeholder="Enter something..." required>
+                <button type="submit">Submit (Prevented)</button>
+            </form>
+            <div class="output" id="formOutput">Form submission will be prevented</div>
+        </div>
+        
+        <!-- Stop event propagation -->
+        <div class="example">
+            <h3>Stop event propagation</h3>
+            <div id="parentDiv" style="padding: 30px; background: #e6f3ff;">
+                Parent Div
+                <div id="childDiv" style="padding: 20px; background: #cce7ff; margin: 10px;">
+                    Child Div (click me)
+                </div>
+            </div>
+            <div class="output" id="propagationOutput">Click child div to see stopPropagation in action</div>
+        </div>
+    </div>
+    
+    <!-- PART 3: COMMON EVENTS -->
+    <div class="section">
+        <h2>🟦 Common Events</h2>
+        
+        <!-- onchange for select dropdown -->
+        <div class="example">
+            <h3>onchange for select dropdown</h3>
+            <select id="colorSelect" onchange="updateColorText()">
+                <option value="">Choose a color...</option>
+                <option value="red">Red</option>
+                <option value="blue">Blue</option>
+                <option value="green">Green</option>
+            </select>
+            <p id="colorOutput">Selected color will appear here</p>
+        </div>
+        
+        <!-- onclick to change page background -->
+        <div class="example">
+            <h3>onclick to change page background</h3>
+            <button onclick="changePageBackground()">Change Page Background Color</button>
+        </div>
+        
+        <!-- oninput for live search -->
+        <div class="example">
+            <h3>oninput for live search</h3>
+            <input type="text" id="searchInput" oninput="showLiveInput()" placeholder="Type to search...">
+            <div id="searchOutput">Live input will appear here</div>
+        </div>
+        
+        <!-- onmouseover and onmouseout for image opacity -->
+        <div class="example">
+            <h3>onmouseover and onmouseout for image opacity</h3>
+            <img id="opacityImage" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='100' viewBox='0 0 150 100'%3E%3Crect width='150' height='100' fill='%234CAF50'/%3E%3Ctext x='75' y='55' text-anchor='middle' fill='white' font-family='Arial' font-size='16'%3EHover Me%3C/text%3E%3C/svg%3E" 
+                 onmouseover="fadeImageIn()" onmouseout="fadeImageOut()" 
+                 style="cursor: pointer; transition: opacity 0.3s;">
+        </div>
+        
+        <!-- ondblclick to toggle size -->
+        <div class="example">
+            <h3>ondblclick to toggle size</h3>
+            <div class="box" id="toggleBox" ondblclick="toggleBoxSize()" style="cursor: pointer;">
+                Double-click me
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // CREATING & REMOVING ELEMENTS
+        
+        // Create and log paragraph
+        function createParagraph() {
+            const p = document.createElement('p');
+            p.textContent = 'This is a new paragraph element';
+            console.log('Created paragraph:', p);
+            document.getElementById('paragraphOutput').textContent = 'Paragraph created! Check console.';
+        }
+        
+        // Create div with "Hello DOM"
+        function createHelloDiv() {
+            const div = document.createElement('div');
+            div.textContent = 'Hello DOM';
+            div.style.padding = '10px';
+            div.style.background = '#d4edda';
+            div.style.border = '1px solid #c3e6cb';
+            div.style.margin = '10px 0';
+            document.body.appendChild(div);
+        }
+        
+        // Add li to existing ul
+        function addTodoItem() {
+            const li = document.createElement('li');
+            li.textContent = 'New todo item #' + (Date.now() % 1000);
+            document.getElementById('todoList').appendChild(li);
+        }
+        
+        // Create img with setAttribute
+        function addImage() {
+            const img = document.createElement('img');
+            img.setAttribute('src', 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"%3E%3Ccircle cx="50" cy="50" r="40" fill="%23FF6B6B"/%3E%3Ctext x="50" y="55" text-anchor="middle" fill="white" font-size="12"%3EImage%3C/text%3E%3C/svg%3E');
+            img.style.margin = '10px';
+            document.getElementById('imageContainer').appendChild(img);
+        }
+        
+        // Add button with "Click Me" text
+        function addClickButton() {
+            const button = document.createElement('button');
+            button.textContent = 'Click Me';
+            button.onclick = function() { alert('New button clicked!'); };
+            document.getElementById('buttonContainer').appendChild(button);
+        }
+        
+        // Add multiple li elements using loop
+        function addMultipleItems() {
+            const ul = document.getElementById('loopList');
+            for (let i = 1; i <= 5; i++) {
+                const li = document.createElement('li');
+                li.textContent = `Loop item ${i}`;
+                ul.appendChild(li);
+            }
+        }
+        
+        // Insert h3 using append()
+        function insertHeading() {
+            const h3 = document.createElement('h3');
+            h3.textContent = 'This heading was inserted with append()';
+            document.getElementById('mySection').append(h3);
+        }
+        
+        // Add paragraph to all .card elements
+        function addParagraphsToCards() {
+            const cards = document.querySelectorAll('.card');
+            cards.forEach((card, index) => {
+                const p = document.createElement('p');
+                p.textContent = `New paragraph added to card ${index + 1}`;
+                p.style.color = '#007bff';
+                card.appendChild(p);
+            });
+        }
+        
+        // Add option to select dropdown
+        function addOption() {
+            const select = document.getElementById('mySelect');
+            const option = document.createElement('option');
+            option.value = 'option' + (select.children.length + 1);
+            option.textContent = 'Option ' + (select.children.length + 1);
+            select.appendChild(option);
+        }
+        
+        // Build table row with 3 cells
+        function addTableRow() {
+            const tbody = document.querySelector('#myTable tbody');
+            const tr = document.createElement('tr');
+            
+            const names = ['John', 'Jane', 'Bob', 'Alice', 'Charlie'];
+            const ages = [25, 30, 35, 28, 32];
+            const cities = ['New York', 'London', 'Paris', 'Tokyo', 'Sydney'];
+            
+            const randomIndex = Math.floor(Math.random() * names.length);
+            
+            const td1 = document.createElement('td');
+            td1.textContent = names[randomIndex];
+            
+            const td2 = document.createElement('td');
+            td2.textContent = ages[randomIndex];
+            
+            const td3 = document.createElement('td');
+            td3.textContent = cities[randomIndex];
+            
+            tr.appendChild(td1);
+            tr.appendChild(td2);
+            tr.appendChild(td3);
+            tbody.appendChild(tr);
+        }
+        
+        // Remove element using .remove()
+        function removeElement() {
+            const element = document.getElementById('removeMe');
+            if (element) {
+                element.remove();
+            }
+        }
+        
+        // Remove child using removeChild()
+        function removeChild() {
+            const parent = document.getElementById('parentDiv');
+            const child = document.getElementById('childToRemove');
+            if (parent && child) {
+                parent.removeChild(child);
+            }
+        }
+        
+        // Delete card on button click
+        function deleteCard() {
+            document.getElementById('deletableCard').remove();
+        }
+        
+        // Remove li elements containing "done"
+        function removeDoneItems() {
+            const listItems = document.querySelectorAll('#statusList li');
+            listItems.forEach(item => {
+                if (item.textContent.includes('done')) {
+                    item.remove();
+                }
+            });
+        }
+        
+        // Reset button to clear container
+        function clearContainer() {
+            document.getElementById('clearContainer').innerHTML = '';
+        }
+        
+        // EVENT HANDLING
+        
+        // Click event listener
+        document.getElementById('clickButton').addEventListener('click', function() {
+            console.log('Button clicked');
+            alert('Button clicked! Check console.');
+        });
+        
+        // Mouseover event to change background
+        const hoverBox = document.getElementById('hoverBox');
+        hoverBox.addEventListener('mouseover', function() {
+            this.style.background = '#4CAF50';
+        });
+        hoverBox.addEventListener('mouseout', function() {
+            this.style.background = '#ff6b6b';
+        });
+        
+        // Input event for keystroke logging
+        document.getElementById('textInput').addEventListener('input', function(event) {
+            console.log('Keystroke:', event.target.value);
+            document.getElementById('keystrokeOutput').textContent = 'You typed: ' + event.target.value;
+        });
+        
+        // Function attached to button click
+        function sayHi() {
+            alert('Hi there!');
+            console.log('sayHi function called');
+        }
+        document.getElementById('sayHiButton').addEventListener('click', sayHi);
+        
+        // Remove event listener after first click
+        function oneTimeClick() {
+            alert('This will only work once!');
+            document.getElementById('oneTimeButton').removeEventListener('click', oneTimeClick);
+            document.getElementById('oneTimeButton').textContent = 'Already clicked (disabled)';
+        }
+        document.getElementById('oneTimeButton').addEventListener('click', oneTimeClick);
+        
+        // Multiple buttons with one handler
+        function handleMultipleButtons(event) {
+            document.getElementById('buttonOutput').textContent = 'Clicked: ' + event.target.textContent;
+            console.log('Button clicked:', event.target.textContent);
+        }
+        
+        document.getElementById('multiButtonContainer').addEventListener('click', handleMultipleButtons);
+        
+        // Event.target logging
+        document.getElementById('targetContainer').addEventListener('click', function(event) {
+            document.getElementById('targetOutput').textContent = 'event.target: ' + event.target.tagName + ' - "' + event.target.textContent + '"';
+            console.log('event.target:', event.target);
+        });
+        
+        // Event.currentTarget vs Event.target
+        document.getElementById('nestedContainer').addEventListener('click', function(event) {
+            const output = document.getElementById('nestedOutput');
+            output.innerHTML = `
+                <strong>event.target:</strong> ${event.target.tagName} - "${event.target.textContent.trim()}"<br>
+                <strong>event.currentTarget:</strong> ${event.currentTarget.tagName} - "${event.currentTarget.id}"
+            `;
+            console.log('Target:', event.target, 'CurrentTarget:', event.currentTarget);
+        });
+        
+        // Prevent form submission
+        document.getElementById('testForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            document.getElementById('formOutput').textContent = 'Form submission prevented! Data would have been: ' + event.target[0].value;
+        });
+        
+        // Stop event propagation
+        document.getElementById('parentDiv').addEventListener('click', function() {
+            document.getElementById('propagationOutput').textContent = 'Parent div clicked';
+        });
+        
+        document.getElementById('childDiv').addEventListener('click', function(event) {
+            event.stopPropagation();
+            document.getElementById('propagationOutput').textContent = 'Child div clicked - propagation stopped';
+        });
+        
+        // COMMON EVENTS
+        
+        // onchange for select dropdown
+        function updateColorText() {
+            const select = document.getElementById('colorSelect');
+            const output = document.getElementById('colorOutput');
+            output.textContent = 'You selected: ' + select.value;
+            output.style.color = select.value;
+        }
+        
+        // onclick to change page background
+        const colors = ['#ffebee', '#e8f5e8', '#e3f2fd', '#fff3e0', '#f3e5f5'];
+        let colorIndex = 0;
+        function changePageBackground() {
+            document.body.style.backgroundColor = colors[colorIndex];
+            colorIndex = (colorIndex + 1) % colors.length;
+        }
+        
+        // oninput for live search
+        function showLiveInput() {
+            const input = document.getElementById('searchInput');
+            const output = document.getElementById('searchOutput');
+            output.textContent = 'Live input: ' + input.value;
+        }
+        
+        // onmouseover and onmouseout for image opacity
+        function fadeImageIn() {
+            document.getElementById('opacityImage').style.opacity = '0.5';
+        }
+        
+        function fadeImageOut() {
+            document.getElementById('opacityImage').style.opacity = '1';
+        }
+        
+        // ondblclick to toggle size
+        let isLarge = false;
+        function toggleBoxSize() {
+            const box = document.getElementById('toggleBox');
+            if (isLarge) {
+                box.style.width = '100px';
+                box.style.height = '100px';
+            } else {
+                box.style.width = '200px';
+                box.style.height = '200px';
+            }
+            isLarge = !isLarge;
+        }
+    </script>
+</body>
+</html>
