@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frontend Internship - Day 30</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 10px;
+        }
+        
+        .section {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        
+        .highlight {
+            background-color: yellow;
+            padding: 5px;
+        }
+        
+        .link {
+            color: blue;
+            cursor: pointer;
+            padding: 5px;
+        }
+        
+        .notification {
+            padding: 10px;
+            margin: 5px;
+            border-radius: 5px;
+            background-color: #e3f2fd;
+        }
+        
+        .item {
+            padding: 8px;
+            margin: 5px;
+            background-color: #f5f5f5;
+        }
+        
+        .menu-item {
+            padding: 10px;
+            margin: 5px;
+            background-color: #fff3e0;
+            border-left: 4px solid #ff9800;
+        }
+        
+        .card {
+            border: 1px solid #ccc;
+            padding: 15px;
+            margin: 10px;
+            border-radius: 8px;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .emoji {
+            font-size: 18px;
+            padding: 5px;
+        }
+        
+        .error {
+            color: red;
+            background-color: #ffebee;
+            padding: 10px;
+            border-radius: 5px;
+            border-left: 4px solid #f44336;
+        }
+        
+        .hovered {
+            background-color: #e8e8e8;
+            transition: background-color 0.3s;
+        }
+        
+        .rounded {
+            border-radius: 15px;
+        }
+        
+        .btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            margin: 5px;
+        }
+        
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 10px 0;
+        }
+        
+        td, th {
+            padding: 8px;
+            text-align: left;
+        }
+        
+        img {
+            margin: 10px;
+            border-radius: 5px;
+        }
+        
+        input {
+            padding: 8px;
+            margin: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        
+        label {
+            font-weight: bold;
+            margin: 5px;
+        }
+        
+        .nav {
+            background-color: #333;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        
+        .nav li {
+            color: white;
+            list-style: none;
+            padding: 5px;
+        }
+        
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            
+            <h2>DOM Selection Methods Practice</h2>
+            
+        </div>
+
+        <!-- Content for testing all tasks -->
+        <div class="section">
+            <h1>Main Heading</h1>
+            <h2>Secondary Heading</h2>
+            
+            <div>First Division</div>
+            <div>Second Division</div>
+            <div>Third Division</div>
+            
+            <p>This is the first paragraph for testing.</p>
+            <p>This is the second paragraph for testing.</p>
+            <p class="highlight">This is a highlighted paragraph.</p>
+            
+            <ul>
+                <li>First List Item</li>
+                <li>Second List Item</li>
+                <li>Third List Item</li>
+            </ul>
+            
+            <img src="flower1.jpg" alt="Sample Image 1">
+            <img src="rose.jpeg" alt="Sample Image 2">
+        </div>
+
+        <section class="section">
+            <h3>Section One</h3>
+            <p>Content in section one</p>
+        </section>
+
+        <section class="section">
+            <h3>Section Two</h3>
+            <p>Content in section two</p>
+        </section>
+
+        <div class="section">
+            <table>
+                <tr>
+                    <td>Cell 1</td>
+                    <td>Cell 2</td>
+                    <td>Cell 3</td>
+                </tr>
+                <tr>
+                    <td>Cell 4</td>
+                    <td>Cell 5</td>
+                    <td>Cell 6</td>
+                </tr>
+            </table>
+
+            <table>
+                <tr>
+                    <td>Another Table Cell 1</td>
+                    <td>Another Table Cell 2</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <button class="btn">Primary Button</button>
+            <button class="btn">Secondary Button</button>
+            
+            <input type="text" value="Initial Value 1">
+            <input type="text" value="Initial Value 2">
+            <input type="email" value="test@example.com">
+            
+            <label>Form Label One</label>
+            <label>Form Label Two</label>
+        </div>
+
+        <div class="card">
+            <h3 class="title">Card Title</h3>
+            <p>This is a paragraph inside a card.</p>
+        </div>
+
+        <div class="card">
+            <h3 class="title">Another Card Title</h3>
+            <p>Another paragraph in a different card.</p>
+        </div>
+
+        <nav class="nav">
+            <li>Navigation Item 1</li>
+            <li>Navigation Item 2</li>
+        </nav>
+
+        <div class="section">
+            <a href="#link1">Link One</a>
+            <a href="#link2">Link Two</a>
+            <a href="#link3">Link Three</a>
+            
+            <span class="link">Clickable Link Text</span>
+            <span class="link">Another Link Text</span>
+        </div>
+
+        <div class="section">
+            <div class="notification">Important Notification</div>
+            <div class="notification">Another Notice</div>
+            
+            <div class="item">Item Alpha</div>
+            <div class="item">Item Beta</div>
+            <div class="item">Item Gamma</div>
+            
+            <div class="menu-item">Menu Option 1</div>
+            <div class="menu-item">Menu Option 2</div>
+            <div class="menu-item">Menu Option 3</div>
+        </div>
+
+        <div class="section">
+            <div class="error">Error Message 1</div>
+            <div class="error">Error Message 2</div>
+            
+            <div class="emoji">Happy</div>
+            <div class="emoji">Excited</div>
+            <div class="emoji">Cheerful</div>
+        </div>
+
+        <div id="main" class="section">
+            <h3>Main Content Section</h3>
+            <p>This is the main content area with ID 'main'.</p>
+        </div>
+
+        <footer>
+            <p>Footer Content - This will be hidden by Task 10</p>
+            <p>&copy; 2024 Saredufy Web Plus Academy</p>
+        </footer>
+    </div>
+
+    <script>
+      
+
+        // Task 1: Select all <p> tags and log the HTMLCollection
+        console.log("Task 1 - All <p> tags:", document.getElementsByTagName("p"));
+
+        // Task 2: Loop through all <li> tags and log their text content
+        console.log("Task 2 - <li> text content:");
+        Array.from(document.getElementsByTagName("li")).forEach((li, index) => {
+            console.log(`  Li ${index + 1}: ${li.textContent}`);
+        });
+
+        // Task 3: Change the text color of all <h2> tags to purple
+        Array.from(document.getElementsByTagName("h2")).forEach(h2 => {
+            h2.style.color = "purple";
+        });
+        console.log("Task 3 - Changed all <h2> tags to purple color ✓");
+
+        // Task 4: Count how many <div> tags are present on the page
+        const divCount = document.getElementsByTagName("div").length;
+        console.log(`Task 4 - Total <div> tags: ${divCount}`);
+
+        // Task 5: Make all <img> tags have a width of 200px
+        Array.from(document.getElementsByTagName("img")).forEach(img => {
+            img.style.width = "200px";
+        });
+        console.log("Task 5 - Set all <img> tags width to 200px ✓");
+
+        // Task 6: Add a red border to every <section> tag
+        Array.from(document.getElementsByTagName("section")).forEach(section => {
+            section.style.border = "3px solid red";
+        });
+        console.log("Task 6 - Added red border to all <section> tags ✓");
+
+        // Task 7: Set the font size of all <h1> tags to 32px
+        Array.from(document.getElementsByTagName("h1")).forEach(h1 => {
+            h1.style.fontSize = "32px";
+        });
+        console.log("Task 7 - Set all <h1> tags font size to 32px ✓");
+
+        // Task 8: Change the background color of all <table> tags to lightyellow
+        Array.from(document.getElementsByTagName("table")).forEach(table => {
+            table.style.backgroundColor = "lightyellow";
+        });
+        console.log("Task 8 - Changed all <table> backgrounds to lightyellow ✓");
+
+        // Task 9: Add a class 'rounded' to every <button> tag
+        Array.from(document.getElementsByTagName("button")).forEach(button => {
+            button.classList.add("rounded");
+        });
+        console.log("Task 9 - Added 'rounded' class to all <button> tags ✓");
+
+        // Task 10: Hide all <footer> tags using style.display = 'none'
+        Array.from(document.getElementsByTagName("footer")).forEach(footer => {
+            footer.style.display = "none";
+        });
+        console.log("Task 10 - Hidden all <footer> tags ✓");
+
+       
+        console.log("\n🟩 PART 2: querySelector() Tasks");
+
+        // Task 11: Select the first <h1> and change its text
+        const firstH1 = document.querySelector("h1");
+        if (firstH1) {
+            firstH1.textContent = "Updated Main Heading!";
+            console.log("Task 11 - Changed first <h1> text ✓");
+        }
+
+        // Task 12: Select element with class .highlight and make text bold
+        const highlightElement = document.querySelector(".highlight");
+        if (highlightElement) {
+            highlightElement.style.fontWeight = "bold";
+            console.log("Task 12 - Made .highlight text bold ✓");
+        }
+
+        // Task 13: Select element with ID #main and set background to lightblue
+        const mainElement = document.querySelector("#main");
+        if (mainElement) {
+            mainElement.style.backgroundColor = "lightblue";
+            console.log("Task 13 - Set #main background to lightblue ✓");
+        }
+
+        // Task 14: Select first <input> and set value to "Hello"
+        const firstInput = document.querySelector("input");
+        if (firstInput) {
+            firstInput.value = "Hello";
+            console.log("Task 14 - Set first input value to 'Hello' ✓");
+        }
+
+        // Task 15: Select <p> inside .card and underline text
+        const cardParagraph = document.querySelector(".card p");
+        if (cardParagraph) {
+            cardParagraph.style.textDecoration = "underline";
+            console.log("Task 15 - Underlined text in .card p ✓");
+        }
+
+        // Task 16: Select .card .title and change font
+        const cardTitle = document.querySelector(".card .title");
+        if (cardTitle) {
+            cardTitle.style.fontFamily = "Georgia, serif";
+            console.log("Task 16 - Changed .card .title font to Georgia ✓");
+        }
+
+        // Task 17: Select first .btn and change text to "Clicked"
+        const firstButton = document.querySelector(".btn");
+        if (firstButton) {
+            firstButton.textContent = "Clicked";
+            console.log("Task 17 - Changed first .btn text to 'Clicked' ✓");
+        }
+
+        // Task 18: Select <label> and change text color to green
+        const firstLabel = document.querySelector("label");
+        if (firstLabel) {
+            firstLabel.style.color = "green";
+            console.log("Task 18 - Changed label color to green ✓");
+        }
+
+        // Task 19: Select .nav > li and log its text
+        const navItem = document.querySelector(".nav > li");
+        if (navItem) {
+            console.log(`Task 19 - Nav item text: "${navItem.textContent}"`);
+        }
+
+        // Task 20: Select first <img> inside section and change src
+        const sectionImage = document.querySelector("section img");
+        if (sectionImage) {
+            sectionImage.src = "https://via.placeholder.com/200x150/96CEB4/FFFFFF?text=Updated+Image";
+            console.log("Task 20 - Changed section img src ✓");
+        }
+
+
+        console.log("\n PART 3: querySelectorAll() Tasks");
+
+        // Task 21: Select all .item elements and log NodeList
+        const allItems = document.querySelectorAll(".item");
+        console.log("Task 21 - All .item elements:", allItems);
+
+        // Task 22: Loop through all .menu-item elements and change font color
+        document.querySelectorAll(".menu-item").forEach(menuItem => {
+            menuItem.style.color = "blue";
+        });
+        console.log("Task 22 - Changed all .menu-item colors to blue ✓");
+
+        // Task 23: Select all <a> tags and underline them
+        document.querySelectorAll("a").forEach(link => {
+            link.style.textDecoration = "underline";
+        });
+        console.log("Task 23 - Underlined all <a> tags ✓");
+
+        // Task 24: Add 'hovered' class to all .link elements
+        document.querySelectorAll(".link").forEach(linkElement => {
+            linkElement.classList.add("hovered");
+        });
+        console.log("Task 24 - Added 'hovered' class to all .link elements ✓");
+
+        // Task 25: Select all <input> fields and clear values
+        document.querySelectorAll("input").forEach(input => {
+            input.value = "";
+        });
+        console.log("Task 25 - Cleared all input values ✓");
+
+        // Task 26: Select all .notification elements and set background to pink
+        document.querySelectorAll(".notification").forEach(notification => {
+            notification.style.backgroundColor = "pink";
+        });
+        console.log("Task 26 - Set all .notification backgrounds to pink ✓");
+
+        // Task 27: Count .card elements and log count
+        const cardCount = document.querySelectorAll(".card").length;
+        console.log(`Task 27 - Total .card elements: ${cardCount}`);
+
+        // Task 28: Select all .error messages and change text to "Fixed"
+        document.querySelectorAll(".error").forEach(error => {
+            error.textContent = "Fixed";
+        });
+        console.log("Task 28 - Changed all .error text to 'Fixed' ✓");
+
+        // Task 29: Add emoji to end of all .emoji elements
+        document.querySelectorAll(".emoji").forEach(emojiElement => {
+            emojiElement.innerHTML += " 😄";
+        });
+        console.log("Task 29 - Added emoji to all .emoji elements ✓");
+
+        // Task 30: Select all <td> cells and set border
+        document.querySelectorAll("td").forEach(cell => {
+            cell.style.border = "1px solid gray";
+        });
+        console.log("Task 30 - Added gray border to all <td> elements ✓");
+
+        console.log("\n🎉 All 30 tasks completed successfully!");
+        console.log("Check the page to see all the visual changes applied!");
+    </script>
+</body>
+</html>
