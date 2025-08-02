@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Quiz App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="quiz-container">
+        <div class="quiz-header">
+            <h1 class="quiz-title">JavaScript Quiz</h1>
+            <p class="quiz-subtitle">Test your JavaScript knowledge</p>
+            
+            <div class="progress-container">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+            
+            <div class="quiz-info">
+                <div class="question-counter">
+                    <span id="currentQuestion">0</span> of <span id="totalQuestions">0</span>
+                </div>
+                <div class="quiz-timer" id="quizTimer">
+                    Time: <span id="timeRemaining">00:00</span>
+                </div>
+                <div class="score-display">
+                    Score: <span id="currentScore">0</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="quiz-body">
+            <!-- Start Screen -->
+            <div class="start-screen" id="startScreen">
+                <h2>Welcome to the JavaScript Quiz!</h2>
+                <p>Challenge yourself with 10 multiple-choice questions about JavaScript fundamentals, ES6 features, and best practices.</p>
+                
+                <div class="quiz-rules">
+                    <h3>Quiz Rules:</h3>
+                    <ul>
+                        <li>10 questions total, one question at a time</li>
+                        <li>Each question has 4 multiple choice options</li>
+                        <li>Select your answer and click Submit</li>
+                        <li>You'll see immediate feedback after each question</li>
+                        <li>No time limit - take your time to think</li>
+                        <li>You can restart the quiz at any time</li>
+                    </ul>
+                </div>
+                
+                <button class="btn btn-primary" onclick="startQuiz()" id="startBtn">
+                    Start Quiz
+                </button>
+            </div>
+
+            <!-- Question Screen -->
+            <div class="question-container" id="questionContainer">
+                <div class="question">
+                    <div class="question-number" id="questionNumber">Question 1</div>
+                    <div class="question-text" id="questionText"></div>
+                </div>
+
+                <form id="quizForm">
+                    <div class="options-container" id="optionsContainer">
+                        <!-- Options will be dynamically generated -->
+                    </div>
+                </form>
+
+                <div class="quiz-controls">
+                    <button type="button" class="btn btn-secondary" onclick="resetQuiz()" id="resetBtn">
+                        Reset Quiz
+                    </button>
+                    <button type="button" class="btn btn-primary" onclick="submitAnswer()" id="submitBtn" disabled>
+                        Submit Answer
+                    </button>
+                    <button type="button" class="btn btn-success" onclick="nextQuestion()" id="nextBtn" style="display: none;">
+                        Next Question
+                    </button>
+                </div>
+            </div>
+
+            <!-- Results Screen -->
+            <div class="results-screen" id="resultsScreen">
+                <div class="results-header">
+                    <div class="results-score" id="finalScore">0/10</div>
+                    <div class="results-message" id="resultsMessage">Quiz Complete!</div>
+                    <div class="results-details" id="resultsDetails">You've completed the JavaScript quiz.</div>
+                </div>
+
+                <div class="performance-message" id="performanceMessage">
+                    Great job on completing the quiz!
+                </div>
+
+                <div class="results-breakdown">
+                    <div class="stat-item">
+                        <span class="stat-number" id="correctAnswers">0</span>
+                        <div class="stat-label">Correct</div>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" id="incorrectAnswers">0</span>
+                        <div class="stat-label">Incorrect</div>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" id="accuracyPercentage">0%</span>
+                        <div class="stat-label">Accuracy</div>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" id="timeTaken">0:00</span>
+                        <div class="stat-label">Time Taken</div>
+                    </div>
+                </div>
+
+                <div class="quiz-controls">
+                    <button class="btn btn-primary" onclick="restartQuiz()">
+                        Take Quiz Again
+                    </button>
+                    <button class="btn btn-secondary" onclick="resetQuiz()">
+                        Back to Home
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
