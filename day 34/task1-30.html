@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Registration Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="form-container">
+        <div class="form-header">
+            <h1>Create Account</h1>
+            <p>Join us today! Fill out the form below to get started.</p>
+        </div>
+
+        <form id="registrationForm" novalidate>
+            <div class="form-group">
+                <label for="fullName">Full Name</label>
+                <div class="input-wrapper">
+                    <input 
+                        type="text" 
+                        id="fullName" 
+                        name="fullName" 
+                        placeholder="Enter your full name"
+                        autocomplete="name"
+                        required
+                    >
+                    <div class="validation-icon" id="nameIcon"></div>
+                </div>
+                <div class="error-message" id="nameError"></div>
+                <div class="success-message" id="nameSuccess"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <div class="input-wrapper">
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        placeholder="Enter your email address"
+                        autocomplete="email"
+                        required
+                    >
+                    <div class="validation-icon" id="emailIcon"></div>
+                </div>
+                <div class="error-message" id="emailError"></div>
+                <div class="success-message" id="emailSuccess"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="age">Age</label>
+                <div class="input-wrapper">
+                    <input 
+                        type="number" 
+                        id="age" 
+                        name="age" 
+                        placeholder="Enter your age"
+                        min="13" 
+                        max="120"
+                        required
+                    >
+                    <div class="validation-icon" id="ageIcon"></div>
+                </div>
+                <div class="error-message" id="ageError"></div>
+                <div class="success-message" id="ageSuccess"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <div class="input-wrapper">
+                    <input 
+                        type="password" 
+                        id="password" 
+                        name="password" 
+                        placeholder="Create a strong password"
+                        autocomplete="new-password"
+                        required
+                    >
+                    <div class="validation-icon" id="passwordIcon"></div>
+                </div>
+                <div class="error-message" id="passwordError"></div>
+                <div class="password-strength" id="passwordStrength">
+                    <div class="strength-bar">
+                        <div class="strength-fill" id="strengthFill"></div>
+                    </div>
+                    <div class="strength-text" id="strengthText">Password Strength</div>
+                    <ul class="requirements-list">
+                        <li id="req-length">At least 8 characters</li>
+                        <li id="req-uppercase">One uppercase letter</li>
+                        <li id="req-lowercase">One lowercase letter</li>
+                        <li id="req-number">One number</li>
+                        <li id="req-special">One special character</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password</label>
+                <div class="input-wrapper">
+                    <input 
+                        type="password" 
+                        id="confirmPassword" 
+                        name="confirmPassword" 
+                        placeholder="Confirm your password"
+                        autocomplete="new-password"
+                        required
+                    >
+                    <div class="validation-icon" id="confirmPasswordIcon"></div>
+                </div>
+                <div class="error-message" id="confirmPasswordError"></div>
+                <div class="success-message" id="confirmPasswordSuccess"></div>
+            </div>
+
+            <button type="submit" class="submit-btn" id="submitBtn">
+                <div class="loading-spinner" id="loadingSpinner"></div>
+                <span id="submitText">Create Account</span>
+            </button>
+        </form>
+
+        <div class="form-footer">
+            <p>Already have an account? <a href="#">Sign in here</a></p>
+        </div>
+    </div>
+
+    <div class="overlay" id="overlay"></div>
+    <div class="success-popup" id="successPopup">
+        <div class="success-icon">🎉</div>
+        <h2>Account Created Successfully!</h2>
+        <p>Welcome aboard! Your account has been created and you're ready to get started.</p>
+        <button class="close-popup" onclick="closeSuccessPopup()">Continue</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
