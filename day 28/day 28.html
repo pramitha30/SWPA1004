@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Contact Book</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      text-align: center;
+      padding: 20px;
+    }
+    button {
+      padding: 8px 15px;
+      margin: 5px;
+      background: #4cafef;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      color: white;
+    }
+    button:hover {
+      background: #3498db;
+    }
+    #output {
+      margin-top: 15px;
+      text-align: left;
+      display: inline-block;
+      background: #fff;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+
+  <h1> Simple Contact Book</h1>
+
+  <button onclick="addContact()">➕ Add Contact</button>
+  <button onclick="displayContacts()"> Show All</button>
+  <button onclick="searchContact()"> Search</button>
+  <button onclick="deleteContact()">Delete</button>
+  <button onclick="editContact()">Edit</button>
+
+  <div id="output"></div>
+
+  <script>
+    let contacts = [];
+
+    // Add a new contact
+    function addContact() {
+      let name = prompt("Enter contact name:");
+      let phone = prompt("Enter phone number:");
+      let email = prompt("Enter email address:");
+
+      let contact = { name, phone, email };
+      contacts.push(contact);
+
+      alert(" Contact added!");
+    }
+
+    // Display all contacts
+    function displayContacts() {
+      if (contacts.length === 0) {
+        document.getElementById("output").innerHTML = "No contacts found.";
+        return;
+      }
+
+      let result = "<h3>All Contacts:</h3>";
+      for (let i = 0; i < contacts.length; i++) {
+        result += `<strong>${i + 1}.</strong> `;
+        for (let key in contacts[i]) {
+          result += `${key}: ${contacts[i][key]} | `;
+        }
+        result += "<br>";
+      }
+      document.getElementById("output").innerHTML = result;
+    }
+
+    // Search contact by name
+    function searchContact() {
+      let searchName = prompt("Enter name to search:").toLowerCase();
+      let found = contacts.filter(c => c.name.toLowerCase() === searchName);
+
+      if (found.length > 0) {
+        let result = "<h3>Search Result:</h3>";
+        found.forEach((c, index) => {
+          for (let key in c) {
+            result += `${key}: ${c[key]} | `;
+          }
+          result += "<br>";
+        });
+        document.getElementById("output").innerHTML = result;
+      } else {
+        document.getElementById("output").innerHTML = "❌ No contact found.";
+      }
+    }
+
+    // Delete contact by index or name
+    function deleteContact() {
+      let choice = prompt("Delete by (1) Index or (2) Name?");
+      if (choice === "1") {
+        let index = parseInt(prompt("Enter contact index:")) - 1;
+        if (index >= 0 && index < contacts.length) {
+          contacts.splice(index, 1);
+          alert(" Contact deleted!");
+        } else {
+          alert(" Invalid index.");
+        }
+      } else if (choice === "2") {
+        let nameToDelete = prompt("Enter name to delete:").toLowerCase();
+        let beforeLength = contacts.length;
+        contacts = contacts.filter(c => c.name.toLowerCase() !== nameToDelete);
+        if (contacts.length < beforeLength) {
+          alert("Contact deleted!");
+        } else {
+          alert(" Contact not found.");
+        }
+      }
+    }
+
+    // Edit contact info
+    function editContact() {
+      let index = parseInt(prompt("Enter contact index to edit:")) - 1;
+      if (index >= 0 && index < contacts.length) {
+        let contact = contacts[index];
+        let newName = prompt("Enter new name:", contact.name);
+        let newPhone = prompt("Enter new phone:", contact.phone);
+        let newEmail = prompt("Enter new email:", contact.email);
+
+        contacts[index] = { name: newName, phone: newPhone, email: newEmail };
+        alert("Contact updated!");
+      } else {
+        alert(" Invalid index.");
+      }
+    }
+  </script>
+
+</body>
+</html>
